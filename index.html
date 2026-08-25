@@ -69,6 +69,9 @@ button:focus-visible{outline:2px solid var(--red);outline-offset:2px}
 .step{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#8A8578}
 h1{font-size:27px;font-weight:700;letter-spacing:-.025em;line-height:1.12;margin:3px 0 5px}
 .alvo{font-size:13px;color:var(--ink2)}
+.nextex{font-size:12px;color:#8A8578;margin-top:6px}
+button:disabled{opacity:.32;cursor:default}
+button:disabled:hover{background:var(--card)}
 
 .dial{background:var(--card);border:2px solid var(--ink);border-radius:10px;
   padding:20px 16px 18px;margin:16px 0;text-align:center}
@@ -165,6 +168,7 @@ input[type=number]{-moz-appearance:textfield}
       <div class="step" id="step">Exercício 1 de 5 · Série 1 de 4</div>
       <h1 id="exNome">—</h1>
       <div class="alvo" id="exAlvo"></div>
+      <div class="nextex" id="nextEx"></div>
     </div>
 
     <div class="serieticks" id="ticks"></div>
@@ -177,6 +181,10 @@ input[type=number]{-moz-appearance:textfield}
 
     <div id="actions">
       <button class="primary" id="btnDone">Concluir série</button>
+      <div class="row">
+        <button class="small" id="btnPrevEx">◀ Exercício anterior</button>
+        <button class="small" id="btnNextEx">Pular exercício ▶</button>
+      </div>
       <div class="row">
         <button class="small" id="btnPause">Pausar</button>
         <button class="small danger" id="btnStop">Encerrar treino</button>
@@ -252,6 +260,7 @@ input[type=number]{-moz-appearance:textfield}
 let TREINOS = [];
 let W = null;              // treino escolhido
 let exIdx = 0, serie = 1;  // posição atual
+let pos = {};              // exIdx -> próxima série daquele exercício (retoma ao voltar)
 let extra = {};            // séries extras adicionadas por exercício
 let log = [];              // {exIdx, serie, kg, reps, secs}
 let phase = "idle";        // idle | work | form | rest | confirm
@@ -264,10 +273,37 @@ const fmt = s => { s = Math.max(0, Math.floor(s));
   return String(Math.floor(s/60)).padStart(2,"0") + ":" + String(s%60).padStart(2,"0"); };
 const seriesOf = i => TREINOS.length ? W.exercicios[i].series + (extra[i]||0) : 0;
 
+/* Navegação entre exercícios. Um exercício está PENDENTE enquanto ainda tem série
+   por fazer. O exercício em foco lê `serie`; os outros leem o que ficou em `pos`. */
+const proxSerie = i => i === exIdx ? serie : (pos[i] || 1);
+const pendente  = i => proxSerie(i) <= seriesOf(i);
+
+/* Próximo (dir=1) ou anterior (dir=-1) exercício PENDENTE, circular.
+   Devolve -1 se o atual for o único que ainda tem série a fazer. */
+function achaPendente(dir){
+  const n = W.exercicios.length;
+  for(let k=1; k<n; k++){
+    const i = ((exIdx + dir*k) % n + n) % n;
+    if(pendente(i)) return i;
+  }
+  return -1;
+}
+
+/* Troca de exercício guardando onde parei, para retomar na volta. */
+function goToEx(i){
+  if(i < 0 || i === exIdx) return;
+  pos[exIdx] = serie;
+  exIdx = i;
+  serie = pos[i] || 1;
+  $("btnDone").textContent = "Concluir série";
+  startWork();
+}
+
 /* ================= áudio / tela ================= */
 function beep(f, d, v){
   try{
     if(!ac) ac = new (window.AudioContext||window.webkitAudioContext)();
+    if(ac.state === "suspended") ac.resume();   // iOS suspende o áudio ao sair do foco
     const o = ac.createOscillator(), g = ac.createGain();
     o.frequency.value = f; o.type = "sine"; o.connect(g); g.connect(ac.destination);
     g.gain.setValueAtTime(v||.12, ac.currentTime);
@@ -308,7 +344,7 @@ function renderPick(){
 /* ================= sessão ================= */
 function startWorkout(i){
   W = TREINOS[i];
-  exIdx = 0; serie = 1; log = []; extra = {};
+  exIdx = 0; serie = 1; log = []; extra = {}; pos = {};
   sessionStart = Date.now();
   $("scPick").classList.add("hide");
   $("scRun").classList.remove("hide");
@@ -360,8 +396,9 @@ function saveSet(registrar){
   }
   $("form").classList.add("hide");
   const ultima = serie >= seriesOf(exIdx);
-  const ultimoEx = exIdx >= W.exercicios.length - 1;
-  if(ultima && ultimoEx){ askFinish(); return; }
+  /* fim do treino é "não sobrou série pendente em lugar nenhum", não "último do
+     array" — senão pular um exercício e voltar depois nunca fecharia a sessão */
+  if(ultima && achaPendente(1) === -1){ askFinish(); return; }
   startRest(ultima);
 }
 
@@ -381,7 +418,12 @@ function startRest(trocaExercicio){
 }
 
 function afterRest(){
-  if(serie >= seriesOf(exIdx)){ exIdx++; serie = 1; }
+  if(serie >= seriesOf(exIdx)){
+    pos[exIdx] = serie + 1;              // este exercício fechou
+    const nxt = achaPendente(1);
+    if(nxt === -1){ askFinish(); return; }
+    exIdx = nxt; serie = pos[nxt] || 1;  // retoma o pendente onde ele parou
+  }
   else serie++;
   $("btnDone").textContent = "Concluir série";
   startWork();
@@ -390,11 +432,17 @@ function afterRest(){
 
 function askFinish(){
   phase = "confirm";
+  pos[exIdx] = seriesOf(exIdx) + 1;      // fecha o atual antes de olhar o resto
   paused = true;
   $("actions").classList.add("hide");
   $("confirm").classList.remove("hide");
-  $("confirmTxt").textContent =
-    "Você concluiu a última série de " + W.exercicios[exIdx].nome + ", que é o último exercício do treino " + W.id + ".";
+  const nxt = achaPendente(1);
+  $("confirmTxt").textContent = nxt === -1
+    ? "Você concluiu a última série de " + W.exercicios[exIdx].nome +
+      " e não sobrou nenhuma série pendente no treino " + W.id + "."
+    : "Você concluiu " + W.exercicios[exIdx].nome + ", mas ainda há série pendente em " +
+      W.exercicios[nxt].nome + ".";
+  $("btnBackEx").style.display = nxt === -1 ? "none" : "";
   beep(1046,.3,.16); buzz([160,80,160]);
   render();
 }
@@ -415,7 +463,12 @@ function tick(){
   else if(phase === "rest"){
     restLeft = (restEnd - performance.now())/1000;
     const w = Math.ceil(restLeft);
-    if(w <= 3 && w > 0 && w !== lastBeep){ lastBeep = w; beep(760,.09,.10); }
+    /* contagem final: um bipe por segundo nos últimos 5 s, o último mais agudo */
+    if(w <= 5 && w > 0 && w !== lastBeep){
+      lastBeep = w;
+      beep(w === 1 ? 940 : 760, .09, .11);
+      buzz(30);
+    }
     if(restLeft <= 0){ afterRest(); return; }
     render();
   } else if(phase === "form" || phase === "confirm") renderTop();
@@ -435,6 +488,14 @@ function render(){
                           " · Série " + serie + " de " + tot;
   $("exNome").textContent = ex.nome;
   $("exAlvo").textContent = (ex.alvo || "") + (ex.peso ? "" : " · sem carga");
+
+  /* qual exercício vem depois deste, para dar tempo de se preparar */
+  const nx = achaPendente(1);
+  $("nextEx").textContent = nx === -1
+    ? "Último exercício pendente do treino"
+    : "Próximo exercício: " + W.exercicios[nx].nome;
+  $("btnPrevEx").disabled = nx === -1;   // nada pendente além deste: não há para onde ir
+  $("btnNextEx").disabled = nx === -1;
 
   let t = "";
   for(let s=1; s<=tot; s++)
@@ -501,6 +562,11 @@ $("btnPause").addEventListener("click", () => {
     render();
   } else if(phase === "rest"){ restEnd += 30000; render(); }
 });
+/* pular / voltar: a máquina do exercício está ocupada, faço outro e volto depois.
+   A série em andamento ainda não foi registrada, então nada se perde além do
+   cronômetro dela, que reinicia. */
+$("btnNextEx").addEventListener("click", () => goToEx(achaPendente(1)));
+$("btnPrevEx").addEventListener("click", () => goToEx(achaPendente(-1)));
 $("btnStop").addEventListener("click", () => {
   if(confirm("Encerrar o treino agora? O resumo será montado com as séries já registradas.")) finish();
 });
@@ -524,7 +590,10 @@ $("btnMoreSet").addEventListener("click", () => {
 });
 $("btnBackEx").addEventListener("click", () => {
   $("confirm").classList.add("hide");
-  startRest(false);
+  const nxt = achaPendente(1);
+  /* antes ia para startRest(false) e o afterRest fazia exIdx++ para fora do
+     array, quebrando o render. Agora volta para o exercício que ficou pendente. */
+  if(nxt === -1) startWork(); else goToEx(nxt);
 });
 $("btnNew").addEventListener("click", () => {
   W = null; log = []; sessionStart = 0;

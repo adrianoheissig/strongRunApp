@@ -1,4 +1,4 @@
-const CACHE = "strongrun-v1";
+const CACHE = "strongrun-v2";
 
 const ASSETS = [
   "./",

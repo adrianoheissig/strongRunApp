@@ -129,17 +129,37 @@ idle → work → form → rest → work → … → confirm → resumo
 |---|---|
 | `work` | cronômetro **crescente** (tempo sob tensão). Botão "Concluir série" |
 | `form` | campos de kg e reps, "copiar anterior", "não registrar" |
-| `rest` | regressivo com `descanso` do exercício; bipe nos 3 s finais; avança sozinho |
+| `rest` | regressivo com `descanso` do exercício; um bipe por segundo nos **5 s** finais (o último a 940 Hz, mais agudo, com vibração curta junto); avança sozinho |
 | `confirm` | só na última série do último exercício: "Treino concluído?" |
 
 Estado da sessão: `exIdx` (exercício), `serie`, `log[]` (as séries registradas),
-`extra{}` (séries adicionadas via "mais uma série aqui").
+`extra{}` (séries adicionadas via "mais uma série aqui"), `pos{}` (a próxima série
+de cada exercício, para retomar depois de pular).
 
 Detalhes que valem conhecer antes de mexer:
 
 - **`seriesOf(i)`** devolve `series + extra[i]`. Use sempre essa função, nunca
   `W.exercicios[i].series` direto, senão o botão "mais uma série aqui" quebra a
   contagem e a barra de progresso.
+- **O treino não avança em linha reta pelo array.** Os botões "Pular exercício" e
+  "Exercício anterior" existem porque a máquina da academia pode estar ocupada. Por
+  isso:
+  - `pos[i]` guarda em que série cada exercício parou. `goToEx(i)` salva o atual e
+    restaura o destino — pular e voltar **retoma na série certa**, não recomeça.
+  - **Um exercício está `pendente(i)` enquanto tiver série por fazer.** O exercício
+    em foco lê `serie`; os outros leem `pos[i]`. É por isso que `proxSerie(i)`
+    existe — não leia `pos[exIdx]` direto, ele só é escrito na troca.
+  - `achaPendente(dir)` acha o próximo (`1`) ou anterior (`-1`) pendente, circular.
+    Devolve `-1` quando o atual é o único que resta.
+- ⚠️ **Fim de treino é "não sobrou pendente", nunca "último do array".** Nunca
+  volte a testar `exIdx >= W.exercicios.length - 1` para decidir o fim, e nunca
+  avance com `exIdx++`. Com o pular liberado, o último exercício do array pode ser
+  concluído no meio do treino, com outro ainda em aberto — o `askFinish()`
+  dispararia cedo e a sessão fecharia com exercício por fazer.
+- ⚠️ **Era daí que vinha um crash na v1:** "Voltar ao treino" na tela de confirmação
+  chamava `startRest(false)`, e o `afterRest()` fazia `exIdx++` para fora do array;
+  o `render()` seguinte lia `W.exercicios[undefined].nome` e a tela morria. Hoje o
+  botão vai para o exercício pendente, e some quando não há nenhum.
 - **"Copiar anterior"** puxa da última entrada do mesmo `exIdx` **na sessão
   atual** — decisão explícita do usuário. Não estenda para sessões passadas sem
   ele pedir; isso exigiria persistência, que ele recusou.
@@ -147,6 +167,11 @@ Detalhes que valem conhecer antes de mexer:
   registrado. Não é o mesmo caminho do `confirm`.
 - Cronômetros usam `performance.now()` com acumulador, não incremento por
   intervalo, para não derivar quando a aba perde o foco.
+- **`beep()` chama `ac.resume()` se o contexto estiver `suspended`.** O iOS suspende
+  o AudioContext quando o app perde o foco; sem isso a contagem final fica muda
+  justamente quando o telefone ficou parado no banco durante o descanso.
+- **Pular exercício descarta o cronômetro da série em andamento**, que ainda não foi
+  registrada. É intencional: quem pula não executou a série.
 
 ---
 
