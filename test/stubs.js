@@ -14,7 +14,9 @@ function mkEl(id){
       _s: new Set(),
       add(c){ this._s.add(c); },
       remove(c){ this._s.delete(c); },
-      contains(c){ return this._s.has(c); }
+      contains(c){ return this._s.has(c); },
+      toggle(c, on){ if(on === undefined) on = !this._s.has(c);
+                     if(on) this._s.add(c); else this._s.delete(c); return on; }
     },
     addEventListener(ev, fn){ (handlers[ev] = handlers[ev] || []).push(fn); },
     focus(){},
@@ -24,6 +26,19 @@ function mkEl(id){
 }
 
 export const els = {};
+
+/* localStorage de mentira, em memória */
+function memStorage(){
+  const m = new Map();
+  return {
+    getItem: k => (m.has(k) ? m.get(k) : null),
+    setItem: (k, v) => m.set(k, String(v)),
+    removeItem: k => m.delete(k),
+    clear: () => m.clear(),
+    get size(){ return m.size; }
+  };
+}
+export const storage = () => globalThis.window.localStorage;
 
 /* relógio: performance.now() e Date.now() andam juntos, e só quando o teste manda */
 export const clock = {
@@ -51,6 +66,7 @@ export function instalarStubs(){
   globalThis.window = {
     addEventListener(){},
     scrollTo(){},
+    localStorage: memStorage(),
     AudioContext: function(){
       return {
         state: "running", currentTime: 0, resume(){},

@@ -2,6 +2,14 @@
 
 .intro{font-size:14px;color:var(--ink2);line-height:1.5;margin-bottom:18px}
 
+/* ---------- retomar treino interrompido ---------- */
+.resume{background:var(--card);border:2px solid var(--steel);border-radius:10px;
+  padding:16px;margin-bottom:18px}
+.resume .rlab{font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--steel);margin-bottom:6px}
+.resume .rtxt{font-size:15px;line-height:1.45;margin-bottom:14px}
+.resume .rtxt b{font-weight:600}
+
 .pick{display:block;width:100%;text-align:left;background:var(--card);
   border:1.5px solid var(--rule);border-radius:8px;padding:0;margin-bottom:10px;
   overflow:hidden;font-weight:400}

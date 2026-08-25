@@ -45,6 +45,7 @@ js/
   audio.js      bipe, vibração, trava de tela
   format.js     segundos -> MM:SS
   workouts.js   carga do workouts.json
+  storage.js    guarda a sessão EM ANDAMENTO (não é histórico — leia abaixo)
 
 test/
   run.js        testes da máquina de estados — `node test/run.js`
@@ -122,9 +123,15 @@ descanso e o progresso. **Mudou `state.js` ou `session.js`? Rode.**
 - **Repositório precisa ser público.** Pages em repo privado exige plano pago.
   Alternativa para privado: Cloudflare Pages (`wrangler pages deploy .`). Confirme
   com o usuário antes de trocar de plataforma.
-- **Não adicione persistência sem ele pedir.** O resumo é mostrado e descartado —
-  foi decisão explícita dele. Não introduza `localStorage`, histórico, gráficos ou
-  backend por iniciativa própria.
+- **O resumo continua não sendo salvo.** Ele é mostrado e descartado — decisão
+  explícita do dono. Não introduza histórico entre sessões, gráficos, exportação
+  ou backend por iniciativa própria.
+- ⚠️ **`storage.js` NÃO é uma exceção a isso.** Ele guarda só a sessão **em
+  andamento**, para um refresh ou o iOS descartando a aba não jogarem fora o
+  treino do dia, e **apaga tudo quando o treino termina** (`finish()`) ou é
+  descartado. Sessão parada há mais de 6 h também é esquecida. A diferença entre
+  "não perder o treino de hoje" e "guardar histórico" é deliberada — não
+  transforme um no outro.
 - **Não mexa na exceção de `workouts.json` no `sw.js`.** Esse arquivo usa
   network-first justamente para que a rotina editada no repo apareça sem precisar
   incrementar a versão do cache. O resto é cache-first.
@@ -183,7 +190,11 @@ idle → work → form → rest → work → … → confirm → resumo
 | `work` | cronômetro **crescente** (tempo sob tensão). Botão "Concluir série" |
 | `form` | campos de kg e reps, "copiar anterior", "não registrar" |
 | `rest` | regressivo com `descanso` do exercício; um bipe por segundo nos **5 s** finais (o último a 940 Hz, mais agudo, com vibração curta junto); avança sozinho |
-| `confirm` | só na última série do último exercício: "Treino concluído?" |
+| `confirm` | quando não sobra série pendente: "Treino concluído?" |
+
+Fora das fases, sempre disponíveis na tela de sessão: a **lista de exercícios**
+(salto direto para o que estiver com a máquina livre), o **desfazer** da última
+série do exercício em foco, e os botões ◀ ▶ de pular/voltar.
 
 Estado da sessão: `exIdx` (exercício), `serie`, `log[]` (as séries registradas),
 `extra{}` (séries adicionadas via "mais uma série aqui"), `pos{}` (a próxima série
@@ -225,6 +236,17 @@ Detalhes que valem conhecer antes de mexer:
   justamente quando o telefone ficou parado no banco durante o descanso.
 - **Pular exercício descarta o cronômetro da série em andamento**, que ainda não foi
   registrada. É intencional: quem pula não executou a série.
+- **A lista de exercícios (`renderPlan`) usa delegação de evento.** O listener fica
+  no container `#planList`, nunca nos itens: eles são refeitos a cada `render()` e
+  listeners presos neles vazariam a cada quadro.
+- **`podeIrPara(i)` decide o salto**, e recusa exercício concluído — ir para um
+  fechado deixaria `serie` além do total dele, e a tela mostraria "Série 5 de 4".
+- **`desfazerUltima()` só mexe no exercício em foco**, e só nas fases `work` e
+  `rest`. O botão vive no quadro daquele exercício; apagar série de outro seria
+  surpresa.
+- ⚠️ **`retomarSessao()` volta sempre em `work`, nunca em `rest`.** O regressivo
+  salvo já correu no tempo em que o app esteve fora; restaurá-lo daria um descanso
+  falso.
 
 ---
 

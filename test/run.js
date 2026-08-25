@@ -2,7 +2,7 @@
    Sem dependência nenhuma — só o Node. */
 
 import { readFileSync } from "node:fs";
-import { instalarStubs, els, clock, tickAll, beeps } from "./stubs.js";
+import { instalarStubs, els, clock, tickAll, beeps, storage as stubStorage } from "./stubs.js";
 
 instalarStubs();
 
@@ -10,10 +10,11 @@ const WORKOUTS = JSON.parse(readFileSync(new URL("../workouts.json", import.meta
 
 /* importados depois dos stubs: os módulos não tocam no DOM ao carregar, mas
    audio.js e session.js leem `window`/`performance` assim que rodam algo */
-const { S, resetSessao, seriesOf, achaPendente, progresso, pendente } = await import("../js/state.js");
+const { S, resetSessao, seriesOf, achaPendente, progresso, pendente, podeIrPara } = await import("../js/state.js");
 const session = await import("../js/session.js");
 const { render } = await import("../js/render.js");
 const { bindEvents } = await import("../js/events.js");
+const storage = await import("../js/storage.js");
 
 bindEvents();
 
@@ -31,6 +32,7 @@ function eq(a, b, msg){
 /* ---------- utilidades de sessão ---------- */
 function novaSessao(t = 0){
   clock.reset();
+  stubStorage().clear();
   beeps.length = 0;
   S.TREINOS = JSON.parse(JSON.stringify(WORKOUTS.treinos));
   S.W = null; S.phase = "idle"; S.sessionStart = 0;
@@ -220,6 +222,152 @@ secao("12. 'Copiar anterior' e 'não registrar'");
   const antes = S.log.length;
   session.saveSet(false);
   eq(S.log.length, antes, "'não registrar' não grava a série");
+}
+
+secao("13. Lista do treino: salto direto");
+{
+  novaSessao(0);
+  const n = S.W.exercicios.length;
+  ok(!podeIrPara(S.exIdx), "não dá para saltar para o exercício em foco");
+  ok(podeIrPara(1), "dá para saltar para um pendente");
+
+  S.pos[2] = seriesOf(2) + 1;                 // fecha o exercício 2
+  ok(!podeIrPara(2), "não dá para saltar para um exercício concluído");
+
+  render();
+  const h = els.planList.innerHTML;
+  ok(h.includes('data-ex="0"') && h.includes('data-ex="' + (n-1) + '"'),
+     "a lista traz todos os " + n + " exercícios");
+  ok(h.includes("pex atual"), "marca o exercício em foco");
+  ok(h.includes("pex feito"), "marca o concluído");
+  ok((h.match(/disabled/g) || []).length >= 2, "em foco e concluído não são clicáveis");
+  ok(h.includes("0 de " + seriesOf(0)), "mostra quantas séries de cada");
+
+  session.goToEx(1);
+  eq(S.exIdx, 1, "saltar leva ao exercício escolhido");
+}
+
+secao("14. Aviso visual nos últimos 5 s");
+{
+  novaSessao(0);
+  concluirSerie();
+  const desc = S.W.exercicios[0].descanso;
+  clock.advance((desc - 8) * 1000); tickAll();
+  ok(!els.dial.classList.contains("urgente"), "ainda não avisa a 8 s do fim");
+
+  clock.advance(3500); tickAll();
+  ok(els.dial.classList.contains("urgente"), "avisa dentro dos 5 s finais");
+
+  passarDescanso();
+  ok(!els.dial.classList.contains("urgente"), "o aviso some ao voltar a executar");
+}
+
+secao("15. Desfazer a última série");
+{
+  novaSessao(0);
+  concluirSerie(10, 40); passarDescanso();
+  concluirSerie(8, 45); passarDescanso();
+  eq(S.log.length, 2, "duas séries registradas");
+  eq(S.serie, 3, "está na série 3");
+
+  ok(session.desfazerUltima(), "desfaz");
+  eq(S.log.length, 1, "a última saiu do registro");
+  eq(S.serie, 2, "voltou para a série desfeita");
+  eq(S.phase, "work", "volta a executar");
+  eq(S.log[0].reps, 10, "a série anterior continua intacta");
+
+  ok(session.desfazerUltima(), "desfaz de novo");
+  eq(S.log.length, 0, "sem séries");
+  ok(!session.desfazerUltima(), "sem nada a desfazer, não faz nada");
+}
+
+secao("16. Desfazer não invade outro exercício");
+{
+  novaSessao(0);
+  concluirSerie(); passarDescanso();          // 1 série no exercício 0
+  session.goToEx(achaPendente(1));            // vai para o 1, sem registrar nada
+  eq(S.exIdx, 1, "está no exercício 1");
+  ok(!session.desfazerUltima(), "não apaga a série do exercício 0");
+  eq(S.log.length, 1, "o registro do outro exercício continua lá");
+}
+
+secao("17. Desfazer devolve o exercício à pendência");
+{
+  novaSessao(0);
+  correrTreino();                              // fecha o treino inteiro
+  eq(S.phase, "confirm", "chegou ao confirm");
+  ok(!session.desfazerUltima(), "não desfaz durante a confirmação");
+
+  els.btnMoreSet.click();                      // sai do confirm para work
+  ok(session.desfazerUltima(), "desfaz já em execução");
+  ok(pendente(S.exIdx), "o exercício voltou a ficar pendente");
+}
+
+secao("18. Sessão em andamento: salvar, ler e limpar");
+{
+  novaSessao(0);
+  concluirSerie(12, 50); passarDescanso();
+
+  const salva = storage.lerSalva();
+  ok(salva !== null, "a sessão foi salva");
+  eq(salva.treinoId, S.W.id, "guarda o treino pelo id, não pelo índice");
+  eq(salva.log.length, 1, "guarda as séries registradas");
+  eq(salva.exIdx, S.exIdx, "guarda a posição");
+
+  storage.limpar();
+  eq(storage.lerSalva(), null, "limpar apaga");
+}
+
+secao("19. Sessão salva é descartada quando não faz mais sentido");
+{
+  novaSessao(0);
+  concluirSerie(); passarDescanso();
+  ok(storage.lerSalva() !== null, "há sessão salva");
+
+  clock.advance(7 * 3600 * 1000);
+  eq(storage.lerSalva(), null, "sessão parada há mais de 6 h é esquecida");
+
+  novaSessao(0);
+  concluirSerie(); passarDescanso();
+  const idOriginal = S.W.id;
+  S.TREINOS = S.TREINOS.filter(t => t.id !== idOriginal);   // o treino sumiu do json
+  eq(storage.lerSalva(), null, "treino que não existe mais é descartado");
+
+  novaSessao(0);
+  concluirSerie(); passarDescanso();
+  const cru = JSON.parse(stubStorage().getItem("strongrun.sessao"));
+  cru.exIdx = 99;                                            // posição impossível
+  stubStorage().setItem("strongrun.sessao", JSON.stringify(cru));
+  eq(storage.lerSalva(), null, "posição fora do treino atual é descartada");
+}
+
+secao("20. Retomar restaura onde parou");
+{
+  novaSessao(0);
+  concluirSerie(9, 70); passarDescanso();
+  session.goToEx(achaPendente(1));
+  concluirSerie(7, 30); passarDescanso();
+
+  const salva = storage.lerSalva();
+  const exIdxAntes = S.exIdx, serieAntes = S.serie, logAntes = S.log.length;
+
+  /* simula o app sendo fechado e aberto de novo */
+  S.W = null; S.phase = "idle"; resetSessao();
+  session.retomarSessao(salva);
+
+  eq(S.exIdx, exIdxAntes, "voltou ao mesmo exercício");
+  eq(S.serie, serieAntes, "voltou à mesma série");
+  eq(S.log.length, logAntes, "as séries registradas voltaram");
+  eq(S.phase, "work", "retoma executando, nunca no meio de um descanso");
+  eq(S.log[0].kg, 70, "os pesos registrados sobreviveram");
+}
+
+secao("21. Treino concluído não deixa sessão para retomar");
+{
+  novaSessao(0);
+  correrTreino();
+  els.btnFinish.click();
+  eq(storage.lerSalva(), null, "finalizar apaga a sessão salva");
 }
 
 console.log("\n---------------------------------------------");

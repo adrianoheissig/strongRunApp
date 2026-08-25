@@ -50,6 +50,14 @@ export const proxSerie = i => i === S.exIdx ? S.serie : (S.pos[i] || 1);
 /* Um exercício está pendente enquanto ainda tiver série por fazer. */
 export const pendente = i => proxSerie(i) <= seriesOf(i);
 
+/* Dá para saltar para o exercício `i`? Só se ele ainda tiver série a fazer e
+   não for o que já está em foco. Ir para um exercício fechado deixaria `serie`
+   além do total dele — a tela mostraria "Série 5 de 4". */
+export const podeIrPara = i => i !== S.exIdx && pendente(i);
+
+/* Quantas séries do exercício `i` já foram concluídas. */
+export const feitasDe = i => proxSerie(i) - 1;
+
 /* Próximo (dir=1) ou anterior (dir=-1) exercício PENDENTE, circular.
    Devolve -1 quando o exercício em foco é o único que ainda tem série a fazer. */
 export function achaPendente(dir){

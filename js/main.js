@@ -4,12 +4,17 @@
 import { carregarTreinos } from "./workouts.js";
 import { renderPick, erroDeCarga } from "./render.js";
 import { startWorkout } from "./session.js";
-import { bindEvents } from "./events.js";
+import { bindEvents, oferecerSessao } from "./events.js";
+import { lerSalva } from "./storage.js";
 
 bindEvents();
 
 carregarTreinos()
-  .then(() => renderPick(startWorkout))
+  .then(() => {
+    renderPick(startWorkout);
+    /* depois dos treinos: a sessão salva só vale se o treino dela ainda existir */
+    oferecerSessao(lerSalva());
+  })
   .catch(erroDeCarga);
 
 if("serviceWorker" in navigator)

@@ -5,13 +5,33 @@
    uma página. */
 
 import { $, esconder } from "./dom.js";
-import { S, achaPendente } from "./state.js";
+import { S, achaPendente, podeIrPara } from "./state.js";
 import {
-  startWork, openForm, saveSet, afterRest, askFinish, finish, goToEx
+  startWork, openForm, saveSet, afterRest, askFinish, finish, goToEx,
+  desfazerUltima, retomarSessao
 } from "./session.js";
-import { render } from "./render.js";
+import { render, renderResume } from "./render.js";
+import { limpar } from "./storage.js";
+
+/* A sessão interrompida que a tela inicial está oferecendo, se houver.
+   main.js a informa depois de carregar os treinos. */
+let sessaoSalva = null;
+export function oferecerSessao(s){
+  sessaoSalva = s;
+  renderResume(s);
+}
 
 export function bindEvents(){
+
+  /* ---------- retomar treino interrompido ---------- */
+  $("btnResume").addEventListener("click", () => {
+    if(sessaoSalva) retomarSessao(sessaoSalva);
+  });
+
+  $("btnDiscard").addEventListener("click", () => {
+    limpar();
+    oferecerSessao(null);
+  });
 
   /* ---------- execução ---------- */
   $("btnDone").addEventListener("click", () => {
@@ -36,6 +56,25 @@ export function bindEvents(){
   /* pular / voltar: a máquina do exercício está ocupada */
   $("btnNextEx").addEventListener("click", () => goToEx(achaPendente(1)));
   $("btnPrevEx").addEventListener("click", () => goToEx(achaPendente(-1)));
+
+  /* salto direto pela lista do treino. O listener fica no container, não nos
+     itens: eles são refeitos a cada render e os listeners vazariam. */
+  $("planList").addEventListener("click", e => {
+    const alvo = e.target.closest ? e.target.closest("[data-ex]") : null;
+    if(!alvo) return;
+    const i = +alvo.dataset.ex;
+    if(podeIrPara(i)) goToEx(i);
+  });
+
+  /* desfazer a última série registrada deste exercício */
+  $("btnUndo").addEventListener("click", () => {
+    const ex = S.W.exercicios[S.exIdx];
+    const ultima = S.log.filter(l => l.exIdx === S.exIdx).pop();
+    if(!ultima) return;
+    const desc = (ultima.kg !== null ? ultima.kg + " kg × " : "") + ultima.reps + " reps";
+    if(confirm("Desfazer a série " + ultima.serie + " de " + ex.nome + " (" + desc + ")?\n\nEla volta a ser executada."))
+      desfazerUltima();
+  });
 
   $("btnStop").addEventListener("click", () => {
     if(confirm("Encerrar o treino agora? O resumo será montado com as séries já registradas."))
@@ -78,8 +117,10 @@ export function bindEvents(){
   $("btnNew").addEventListener("click", () => {
     S.W = null; S.log = []; S.sessionStart = 0;
     $("topmeta").textContent = "";
+    limpar();                  // o treino acabou: não há sessão a retomar
+    oferecerSessao(null);
     esconder("scSum");
-    document.getElementById("scPick").classList.remove("hide");
+    $("scPick").classList.remove("hide");
     window.scrollTo({ top: 0 });
   });
 }

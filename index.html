@@ -31,6 +31,13 @@
 
   <!-- ============ TELA 1: escolha ============ -->
   <section id="scPick">
+    <div class="resume hide" id="resume">
+      <div class="rlab">Treino em andamento</div>
+      <div class="rtxt" id="resumeTxt">—</div>
+      <button class="primary" id="btnResume">Retomar de onde parei</button>
+      <button class="small" id="btnDiscard" style="width:100%;margin-top:8px">Descartar e começar outro</button>
+    </div>
+
     <p class="intro">Escolha o treino da sessão. O cronômetro conta o tempo de execução de cada série; o descanso corre sozinho depois que você registra.</p>
     <div id="pickList"></div>
   </section>
@@ -97,6 +104,12 @@
     <div class="ledger" id="ledger">
       <h2>Séries deste exercício</h2>
       <div id="ledgerBody"></div>
+      <button class="small hide" id="btnUndo" style="width:100%;margin-top:10px">Desfazer a última série</button>
+    </div>
+
+    <div class="plan">
+      <h2>Exercícios do treino</h2>
+      <div id="planList"></div>
     </div>
 
     <div class="prog">

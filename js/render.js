@@ -6,7 +6,8 @@
 
 import { $, texto, html, esc } from "./dom.js";
 import { fmt } from "./format.js";
-import { S, seriesOf, achaPendente, progresso, workSecs } from "./state.js";
+import { S, seriesOf, achaPendente, progresso, workSecs,
+         pendente, podeIrPara, feitasDe } from "./state.js";
 
 /* ---------- TELA 1: escolha ---------- */
 /* Recebe o que fazer no clique em vez de importar session.js — sem isso,
@@ -70,6 +71,7 @@ export function render(){
   }
 
   renderLedger();
+  renderPlan();
 
   const { total, feitas } = progresso();
   $("progFill").style.width = (feitas / total * 100) + "%";
@@ -84,6 +86,38 @@ export function renderLedger(){
     '<span class="val mono">' + (l.kg !== null ? l.kg + " kg × " : "") + l.reps + ' reps</span>' +
     '<span class="t mono">' + fmt(l.secs) + '</span></div>'
   ).join("") : '<div class="empty">Nenhuma série registrada ainda.</div>');
+
+  /* desfazer só faz sentido com série registrada deste exercício, e só fora do
+     formulário e da confirmação */
+  const podeDesfazer = rows.length > 0 && (S.phase === "work" || S.phase === "rest");
+  $("btnUndo").classList.toggle("hide", !podeDesfazer);
+}
+
+/* Lista dos exercícios do treino, para saltar direto ao que estiver livre. */
+export function renderPlan(){
+  html("planList", S.W.exercicios.map((ex, i) => {
+    const tot = seriesOf(i), feitas = feitasDe(i);
+    const atual = i === S.exIdx;
+    const feito = !pendente(i);
+    const cls = "pex" + (atual ? " atual" : "") + (feito ? " feito" : "");
+    return '<button class="' + cls + '" data-ex="' + i + '"' +
+             (podeIrPara(i) ? "" : " disabled") + '>' +
+      '<span class="n">' + (i + 1) + '</span>' +
+      '<span class="nm">' + esc(ex.nome) + '</span>' +
+      '<span class="qt">' + feitas + " de " + tot + (feito ? " ✓" : "") + '</span>' +
+    '</button>';
+  }).join(""));
+}
+
+/* Bloco "treino em andamento" da tela inicial. */
+export function renderResume(salva){
+  if(!salva){ $("resume").classList.add("hide"); return; }
+  const total = salva.W.exercicios.reduce(
+    (a, e, i) => a + e.series + (salva.extra[i] || 0), 0);
+  $("resumeTxt").innerHTML =
+    "Treino <b>" + esc(salva.W.id) + " · " + esc(salva.W.nome) + "</b><br>" +
+    salva.log.length + " de " + total + " séries registradas.";
+  $("resume").classList.remove("hide");
 }
 
 /* ---------- TELA 3: resumo ---------- */

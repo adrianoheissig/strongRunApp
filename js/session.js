@@ -15,6 +15,7 @@ import { fmt } from "./format.js";
 import { beep, buzz, keepAwake } from "./audio.js";
 import { render, renderTop, renderSummary } from "./render.js";
 import { S, resetSessao, seriesOf, achaPendente, workSecs } from "./state.js";
+import { salvar, limpar } from "./storage.js";
 
 let tickId = null;
 
@@ -23,10 +24,31 @@ export function startWorkout(i){
   S.W = S.TREINOS[i];
   resetSessao();
   S.sessionStart = Date.now();
+  abrirTelaDeSessao();
+  startWork();
+}
+
+/* Volta para uma sessão interrompida (refresh, aba descartada pelo iOS). */
+export function retomarSessao(salva){
+  S.W = salva.W;
+  resetSessao();
+  S.exIdx = salva.exIdx;
+  S.serie = salva.serie;
+  S.pos = salva.pos || {};
+  S.extra = salva.extra || {};
+  S.log = salva.log || [];
+  S.sessionStart = salva.sessionStart || Date.now();
+  abrirTelaDeSessao();
+  /* ⚠️ retoma sempre em `work`, nunca no descanso: o regressivo salvo já correu
+     no tempo que o app ficou fora, e restaurá-lo daria um descanso falso. */
+  startWork();
+}
+
+function abrirTelaDeSessao(){
   esconder("scPick");
+  esconder("scSum");
   mostrar("scRun");
   keepAwake(true);
-  startWork();
   if(!tickId) tickId = setInterval(tick, 250);
 }
 
@@ -34,6 +56,7 @@ export function finish(){
   S.phase = "idle";
   clearInterval(tickId); tickId = null;
   keepAwake(false);
+  limpar();                 // treino fechado não é sessão em andamento
   renderSummary();
   esconder("scRun");
   mostrar("scSum");
@@ -48,10 +71,12 @@ export function startWork(){
   esconder("confirm");
   mostrar("actions");
   $("dial").classList.remove("rest");
+  $("dial").classList.remove("urgente");
   texto("dialLab", "Executando");
   texto("btnPause", "Pausar");
   texto("btnDone", "Concluir série");
   render();
+  salvar();
 }
 
 /* ---------- fase: registrando a série ---------- */
@@ -91,6 +116,7 @@ export function saveSet(registrar){
   }
 
   esconder("form");
+  salvar();
   const ultima = S.serie >= seriesOf(S.exIdx);
   /* ⚠️ fim do treino é "não sobrou série pendente", NUNCA "último do array":
      com o pular liberado, o último exercício da lista pode ser concluído no
@@ -108,6 +134,7 @@ export function startRest(trocaExercicio){
   S.lastBeep = null;
 
   $("dial").classList.add("rest");
+  $("dial").classList.remove("urgente");
   texto("dialLab", "Descanso");
   mostrar("actions");
   texto("btnDone", trocaExercicio ? "Pular para o próximo exercício" : "Pular descanso");
@@ -147,6 +174,7 @@ export function askFinish(){
 
   beep(1046, .3, .16); buzz([160, 80, 160]);
   render();
+  salvar();
 }
 
 /* ---------- navegação entre exercícios ---------- */
@@ -161,6 +189,23 @@ export function goToEx(i){
   startWork();
 }
 
+/* ---------- desfazer ---------- */
+/* Errou o peso e salvou. Remove a última série registrada DESTE exercício e
+   volta a executá-la. Não apaga série de outro exercício: o botão está no
+   quadro do exercício em foco, e apagar algo fora dele seria surpresa. */
+export function desfazerUltima(){
+  if(S.phase !== "work" && S.phase !== "rest") return false;
+
+  const i = S.log.map(l => l.exIdx).lastIndexOf(S.exIdx);
+  if(i === -1) return false;
+
+  const removida = S.log.splice(i, 1)[0];
+  S.serie = removida.serie;
+  S.pos[S.exIdx] = removida.serie;   // volta a ficar pendente
+  startWork();
+  return true;
+}
+
 /* ---------- o relógio da sessão ---------- */
 export function tick(){
   if(S.phase === "work" && !S.paused) render();
@@ -169,12 +214,14 @@ export function tick(){
     S.restLeft = (S.restEnd - performance.now()) / 1000;
     const w = Math.ceil(S.restLeft);
 
-    /* contagem final: um bipe por segundo nos últimos 5 s, o último mais agudo */
+    /* contagem final: um bipe por segundo nos últimos 5 s, o último mais agudo,
+       e o mostrador em vermelho — o aviso visual vale para quem está de fone */
     if(w <= 5 && w > 0 && w !== S.lastBeep){
       S.lastBeep = w;
       beep(w === 1 ? 940 : 760, .09, .11);
       buzz(30);
     }
+    if(w <= 5 && w > 0) $("dial").classList.add("urgente");
 
     if(S.restLeft <= 0){ afterRest(); return; }
     render();

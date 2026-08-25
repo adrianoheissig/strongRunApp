@@ -1,4 +1,4 @@
-const CACHE = "strongrun-v3";
+const CACHE = "strongrun-v4";
 
 /* ⚠️ Arquivo novo em css/ ou js/ TEM de entrar aqui, senão o app quebra offline.
    O `addAll` é tudo-ou-nada: um caminho errado nesta lista e a instalação do
@@ -26,6 +26,7 @@ const ASSETS = [
   "js/audio.js",
   "js/format.js",
   "js/workouts.js",
+  "js/storage.js",
 
   "icons/icon-192.png",
   "icons/icon-512.png",
