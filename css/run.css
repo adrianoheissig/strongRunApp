@@ -1,0 +1,44 @@
+/* TELA 2 — a sessão: cabeçalho do exercício, mostrador, séries e progresso.
+   O formulário e a confirmação vivem em form.css. */
+
+/* ---------- cabeçalho do exercício ---------- */
+.exhead{margin-bottom:4px}
+.step{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3)}
+.alvo{font-size:13px;color:var(--ink2)}
+.nextex{font-size:12px;color:var(--ink3);margin-top:6px}
+
+/* ---------- mostrador ---------- */
+.dial{background:var(--card);border:2px solid var(--ink);border-radius:10px;
+  padding:20px 16px 18px;margin:16px 0;text-align:center}
+.dial .lab{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink2);
+  margin-bottom:6px}
+.big{font-size:clamp(3.6rem,19vw,5.4rem);font-weight:500;line-height:.95;letter-spacing:-.04em}
+.dial .sub{font-size:13px;color:var(--ink2);margin-top:8px;line-height:1.4}
+
+/* descanso: o mostrador inteiro muda de cor */
+.dial.rest{border-color:var(--steel);background:#F1F6F9}
+.dial.rest .lab{color:var(--steel)}
+.dial.rest .big{color:var(--steel)}
+
+/* ---------- traços de série ---------- */
+.serieticks{display:flex;gap:5px;justify-content:center;margin-top:12px}
+.st{width:30px;height:5px;border-radius:2px;background:var(--rule)}
+.st.on{background:var(--red)}
+.st.done{background:var(--ink)}
+
+/* ---------- séries registradas do exercício ---------- */
+.ledger{margin-top:20px}
+.ledger h2{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink3);
+  padding-bottom:6px;border-bottom:1px solid var(--rule)}
+.lrow{display:grid;grid-template-columns:34px 1fr auto;gap:10px;align-items:center;
+  padding:9px 2px;border-bottom:1px solid var(--rule2);font-size:14px}
+.lrow .idx{font-size:12px;color:#9A9488}
+.lrow .val{font-weight:500}
+.lrow .t{font-size:12px;color:var(--ink2)}
+
+/* ---------- barra de progresso da sessão ---------- */
+.prog{margin-top:22px}
+.progbar{height:6px;background:var(--rule);border-radius:3px;overflow:hidden}
+.progbar i{display:block;height:100%;background:var(--ink);width:0}
+.proglab{display:flex;justify-content:space-between;font-size:11px;color:var(--ink2);
+  margin-top:6px;letter-spacing:.04em}

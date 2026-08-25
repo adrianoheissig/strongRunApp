@@ -1,0 +1,17 @@
+/* TELA 1 — escolha do treino do dia. */
+
+.intro{font-size:14px;color:var(--ink2);line-height:1.5;margin-bottom:18px}
+
+.pick{display:block;width:100%;text-align:left;background:var(--card);
+  border:1.5px solid var(--rule);border-radius:8px;padding:0;margin-bottom:10px;
+  overflow:hidden;font-weight:400}
+.pick:hover{border-color:var(--ink);background:var(--card)}
+
+.pickin{display:grid;grid-template-columns:52px 1fr;align-items:stretch}
+.badge{background:var(--ink);color:var(--paper);display:flex;align-items:center;
+  justify-content:center;font-size:24px;font-weight:700}
+
+.pickbody{padding:13px 14px}
+.pickbody h3{font-size:17px;font-weight:600;letter-spacing:-.01em}
+.pickbody p{font-size:13px;color:var(--ink2);line-height:1.45;margin:3px 0 7px}
+.pickbody .n{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3)}

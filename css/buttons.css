@@ -1,0 +1,24 @@
+/* Todos os botões do app. `.row` é o par lado a lado usado nas três telas. */
+
+button{font-family:var(--font);font-size:15px;font-weight:600;cursor:pointer;
+  border:1.5px solid var(--ink);background:var(--card);color:var(--ink);
+  border-radius:6px;padding:13px 14px;transition:background .12s,transform .06s}
+button:active{transform:translateY(1px)}
+button:hover{background:#F0EDE6}
+button:focus-visible{outline:2px solid var(--red);outline-offset:2px}
+
+/* desabilitado: usado quando não há outro exercício pendente para onde ir */
+button:disabled{opacity:.32;cursor:default}
+button:disabled:hover{background:var(--card)}
+button:disabled:active{transform:none}
+
+.primary{background:var(--ink);color:var(--paper);border-color:var(--ink);width:100%;
+  font-size:17px;padding:17px}
+.primary:hover{background:#25282E}
+
+.danger{border-color:var(--red);color:var(--red);background:transparent}
+.danger:hover{background:#FBEDEC}
+
+.small{font-size:13px;padding:9px 11px;font-weight:500}
+
+.row{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}

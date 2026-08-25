@@ -1,0 +1,31 @@
+/* Registro da série (kg e reps) e a caixa de confirmação de fim de treino.
+   Ambos aparecem dentro da TELA 2. */
+
+/* ---------- registrar série ---------- */
+.form{background:var(--card);border:2px solid var(--red);border-radius:10px;
+  padding:16px;margin:16px 0}
+.form h4{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--red);
+  margin-bottom:12px}
+
+.fields{display:grid;gap:10px}
+.fields.two{grid-template-columns:1fr 1fr}
+
+label{display:block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink2);margin-bottom:5px}
+
+input[type=number],input[type=text]{width:100%;font-family:var(--mono);
+  font-size:26px;font-weight:500;padding:11px 12px;border:1.5px solid var(--rule);
+  border-radius:6px;background:var(--paper);color:var(--ink);
+  font-variant-numeric:tabular-nums}
+input:focus{outline:none;border-color:var(--ink);background:var(--card)}
+input::-webkit-outer-spin-button,input::-webkit-inner-spin-button{
+  -webkit-appearance:none;appearance:none;margin:0}
+input[type=number]{-moz-appearance:textfield;appearance:textfield}
+
+.tos{font-size:12px;color:var(--ink2);margin-top:10px}
+
+/* ---------- confirmação de fim ---------- */
+.confirm{background:var(--card);border:2px solid var(--ink);border-radius:10px;
+  padding:20px 16px;text-align:center;margin:16px 0}
+.confirm h3{font-size:21px;font-weight:700;letter-spacing:-.02em;margin-bottom:6px}
+.confirm p{font-size:14px;color:var(--ink2);line-height:1.5;margin-bottom:16px}

@@ -10,8 +10,9 @@ PWA de uso pessoal para registrar treino de força. Um corredor entra, escolhe o
 treino do dia (A, B, C, D), e o app cronometra a execução de cada série, registra
 peso e repetições, dispara o descanso sozinho e mostra um resumo no final.
 
-HTML, CSS e JS puros em um único `index.html`. **Sem build, sem dependências, sem
-framework.** Não introduza nenhum.
+HTML, CSS e JS puros, em arquivos pequenos e separados. **Sem build, sem
+dependências, sem framework.** Não introduza nenhum — os módulos são ES modules
+nativos (`<script type="module">`), que o navegador carrega direto, sem bundler.
 
 O dono é desenvolvedor sênior e DBA Oracle, iniciando em Python. Seja direto nas
 explicações. Ele pediu explicitamente para **não haver overengineering** — a v1 é
@@ -22,8 +23,33 @@ deliberadamente enxuta, para evoluir depois.
 ## Arquivos
 
 ```
-index.html      app inteiro — telas, máquina de estados, cronômetros
-workouts.json   os treinos (é AQUI que se edita a rotina, não no HTML)
+index.html      só a marcação das três telas — sem <style> e sem <script> inline
+workouts.json   os treinos (é AQUI que se edita a rotina, não no código)
+
+css/
+  tokens.css    cores, fontes e medidas. Mudar a identidade visual começa aqui
+  base.css      reset, tipografia, coluna central, barra de topo, utilidades
+  buttons.css   todos os botões
+  pick.css      TELA 1 — escolha do treino
+  run.css       TELA 2 — cabeçalho, mostrador, séries, progresso
+  form.css      registro da série + caixa de confirmação
+  summary.css   TELA 3 — resumo
+
+js/
+  main.js       entrada. O ÚNICO com efeito colateral ao carregar
+  state.js      o estado `S` e as perguntas sobre ele. Não toca no DOM
+  session.js    a máquina de estados: as transições
+  render.js     desenha as telas. SÓ LÊ o estado
+  events.js     liga os botões às transições (`bindEvents()`)
+  dom.js        acesso ao DOM: $, mostrar/esconder, escape de HTML
+  audio.js      bipe, vibração, trava de tela
+  format.js     segundos -> MM:SS
+  workouts.js   carga do workouts.json
+
+test/
+  run.js        testes da máquina de estados — `node test/run.js`
+  stubs.js      DOM, áudio e relógio falsos
+
 manifest.json   metadados do PWA
 sw.js           service worker, cache-first, com exceção para workouts.json
 icons/          192, 512, apple-touch-icon
@@ -32,6 +58,21 @@ README.md
 ```
 
 Todos os caminhos são relativos — funciona em subdiretório do Pages sem ajuste.
+
+**A dependência entre os módulos é de mão única**, e é o que impede ciclo de
+import:
+
+```
+events ─→ session ─→ render ─→ state
+   └──────────┴─────────┴────────┘   (todos podem ler state)
+```
+
+`render.js` **nunca** importa `session.js`. Por isso `renderPick()` recebe o que
+fazer no clique como parâmetro, em vez de chamar `startWorkout` direto.
+
+⚠️ **Arquivo novo em `css/` ou `js/` tem de entrar na lista `ASSETS` do `sw.js`**,
+senão o app quebra quando estiver offline. O `addAll` é tudo-ou-nada: um caminho
+errado ali e a instalação do service worker falha inteira, em silêncio.
 
 ---
 
@@ -60,7 +101,19 @@ python3 -m http.server 8000
 
 `workouts.json` é lido por `fetch()`, então **não funciona abrindo o index.html
 por `file://`** — precisa de servidor HTTP. Se o usuário reclamar que a tela
-inicial está vazia ao clicar duas vezes no arquivo, é isso.
+inicial está vazia ao clicar duas vezes no arquivo, é isso. Vale em dobro agora:
+ES modules também são bloqueados por `file://`.
+
+**Antes de qualquer commit, rode os testes:**
+
+```bash
+node test/run.js
+```
+
+Sem dependência, sem instalar nada. Eles cobrem a máquina de estados inteira: os
+quatro treinos fechando com a contagem certa, pular e voltar retomando na série
+correta, o exercício pulado impedindo o fim do treino, a contagem final do
+descanso e o progresso. **Mudou `state.js` ou `session.js`? Rode.**
 
 ---
 

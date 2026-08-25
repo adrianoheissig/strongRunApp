@@ -1,0 +1,18 @@
+/* Paleta e medidas do app. Trocar a identidade visual começa (e quase sempre
+   termina) aqui — os outros arquivos só consomem estas variáveis. */
+:root{
+  --paper:#F4F2ED;
+  --card:#FFFFFF;
+  --ink:#14161A;
+  --ink2:#4A4F58;
+  --ink3:#8A8578;      /* textos de apoio: rótulos, contagens */
+  --rule:#DCD7CC;
+  --rule2:#EBE7DE;
+  --red:#C8342B;
+  --steel:#2F5D78;     /* tudo que é descanso */
+  --accent:var(--red);
+
+  --font:Archivo,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,monospace;
+  --largura:540px;     /* largura máxima da coluna */
+}

@@ -1,10 +1,32 @@
-const CACHE = "strongrun-v2";
+const CACHE = "strongrun-v3";
 
+/* ⚠️ Arquivo novo em css/ ou js/ TEM de entrar aqui, senão o app quebra offline.
+   O `addAll` é tudo-ou-nada: um caminho errado nesta lista e a instalação do
+   service worker falha inteira, em silêncio. */
 const ASSETS = [
   "./",
   "index.html",
   "workouts.json",
   "manifest.json",
+
+  "css/tokens.css",
+  "css/base.css",
+  "css/buttons.css",
+  "css/pick.css",
+  "css/run.css",
+  "css/form.css",
+  "css/summary.css",
+
+  "js/main.js",
+  "js/state.js",
+  "js/session.js",
+  "js/render.js",
+  "js/events.js",
+  "js/dom.js",
+  "js/audio.js",
+  "js/format.js",
+  "js/workouts.js",
+
   "icons/icon-192.png",
   "icons/icon-512.png",
   "icons/apple-touch-icon.png"
