@@ -1,0 +1,53 @@
+{
+  "treinos": [
+    {
+      "id": "A",
+      "nome": "Inferior — força",
+      "descricao": "Base de força para corrida. Carga alta, reps baixas, descanso longo.",
+      "exercicios": [
+        { "nome": "Agachamento livre",        "series": 4, "descanso": 150, "peso": true,  "alvo": "5-6 reps" },
+        { "nome": "Levantamento terra romeno","series": 3, "descanso": 120, "peso": true,  "alvo": "6-8 reps" },
+        { "nome": "Afundo com halteres",      "series": 3, "descanso": 90,  "peso": true,  "alvo": "8 por perna" },
+        { "nome": "Panturrilha em pé",        "series": 4, "descanso": 60,  "peso": true,  "alvo": "10-12 reps" },
+        { "nome": "Prancha isométrica",       "series": 3, "descanso": 45,  "peso": false, "alvo": "40-60 s" }
+      ]
+    },
+    {
+      "id": "B",
+      "nome": "Superior + core",
+      "descricao": "Puxar, empurrar e tronco. Mantém a postura firme no fim da prova.",
+      "exercicios": [
+        { "nome": "Barra fixa (ou puxada)",   "series": 4, "descanso": 120, "peso": true,  "alvo": "6-8 reps" },
+        { "nome": "Supino com halteres",      "series": 3, "descanso": 90,  "peso": true,  "alvo": "8-10 reps" },
+        { "nome": "Remada curvada",           "series": 3, "descanso": 90,  "peso": true,  "alvo": "8-10 reps" },
+        { "nome": "Desenvolvimento sentado",  "series": 3, "descanso": 90,  "peso": true,  "alvo": "8-10 reps" },
+        { "nome": "Prancha lateral",          "series": 2, "descanso": 45,  "peso": false, "alvo": "30-45 s por lado" },
+        { "nome": "Abdominal remador",        "series": 3, "descanso": 45,  "peso": false, "alvo": "15 reps" }
+      ]
+    },
+    {
+      "id": "C",
+      "nome": "Unilateral e estabilidade",
+      "descricao": "Uma perna de cada vez. Corre-se em apoio único — é aqui que o desequilíbrio aparece.",
+      "exercicios": [
+        { "nome": "Búlgaro com halteres",     "series": 3, "descanso": 120, "peso": true,  "alvo": "8 por perna" },
+        { "nome": "Terra unilateral",         "series": 3, "descanso": 90,  "peso": true,  "alvo": "8 por perna" },
+        { "nome": "Step-up alto",             "series": 3, "descanso": 90,  "peso": true,  "alvo": "10 por perna" },
+        { "nome": "Elevação de quadril",      "series": 3, "descanso": 75,  "peso": true,  "alvo": "10-12 reps" },
+        { "nome": "Panturrilha unilateral",   "series": 3, "descanso": 60,  "peso": true,  "alvo": "12 por perna" },
+        { "nome": "Prancha com apoio único",  "series": 2, "descanso": 45,  "peso": false, "alvo": "30 s por lado" }
+      ]
+    },
+    {
+      "id": "D",
+      "nome": "Manutenção curta",
+      "descricao": "Sessão enxuta para semana de prova ou dia apertado. Carga moderada, sem levar à falha.",
+      "exercicios": [
+        { "nome": "Agachamento goblet",       "series": 3, "descanso": 90, "peso": true,  "alvo": "8 reps" },
+        { "nome": "Terra romeno",             "series": 2, "descanso": 90, "peso": true,  "alvo": "8 reps" },
+        { "nome": "Panturrilha em pé",        "series": 3, "descanso": 60, "peso": true,  "alvo": "12 reps" },
+        { "nome": "Prancha isométrica",       "series": 2, "descanso": 45, "peso": false, "alvo": "40 s" }
+      ]
+    }
+  ]
+}
