@@ -132,7 +132,7 @@
         {
           "nome": "Búlgaro com halteres",
           "series": 3,
-          "descanso": 120,
+          "descanso": 45,
           "peso": true,
           "alvo": "8 por perna",
           "video": "videos/bulgarian-split-squat.mp4"
@@ -140,7 +140,7 @@
         {
           "nome": "Terra unilateral",
           "series": 3,
-          "descanso": 90,
+          "descanso": 45,
           "peso": true,
           "alvo": "8 por perna",
           "video": "videos/barbell-single-leg-deadlift.mp4"
@@ -148,7 +148,7 @@
         {
           "nome": "Elevação de quadril",
           "series": 3,
-          "descanso": 75,
+          "descanso": 60,
           "peso": true,
           "alvo": "10-12 reps",
           "video": "videos/dumbbell-hip-thrust.mp4"
@@ -156,7 +156,7 @@
         {
           "nome": "Panturrilha unilateral",
           "series": 3,
-          "descanso": 60,
+          "descanso": 30,
           "peso": true,
           "alvo": "12 por perna",
           "video": "videos/calf-raise-with-wall-support.mp4"
@@ -172,7 +172,7 @@
         {
           "nome": "Step-up alto",
           "series": 3,
-          "descanso": 90,
+          "descanso": 30,
           "peso": true,
           "alvo": "10 por perna",
           "video": "videos/kettlebell-step-up.mp4"
@@ -180,7 +180,7 @@
         {
           "nome": "Prancha com apoio único",
           "series": 2,
-          "descanso": 45,
+          "descanso": 30,
           "peso": false,
           "alvo": "30 s por lado",
           "video": "videos/alternate-single-leg-raise-plank.mp4"
