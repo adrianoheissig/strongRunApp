@@ -50,6 +50,29 @@ function passarDescanso(){
   clock.advance(10 * 60 * 1000);
   tickAll();
 }
+/* Alguns testes precisam de um exercicio com CARGA (senao `kg` entra como null)
+   ou com um minimo de SERIES (senao o exercicio fecha antes da 3a).
+
+   ⚠️ Nao fixe o indice 0. Estes testes assumiam que o exercicio 0 do treino A
+   servia, e quebraram calados quando a rotina mudou e o primeiro virou o Monster
+   Walk — sem carga e com 2 series. O workouts.json e editavel por design; o teste
+   e que tem de procurar um exercicio que sirva. Se nenhum servir, estoura aqui,
+   com o motivo, em vez de falhar tres secoes adiante. */
+function achaEx(cond, descricao, t = 0){
+  const i = WORKOUTS.treinos[t].exercicios.findIndex(cond);
+  if(i === -1) throw new Error(
+    "workouts.json: o treino " + WORKOUTS.treinos[t].id +
+    " nao tem exercicio " + descricao + " — o teste nao tem como rodar");
+  return i;
+}
+const exComPeso   = min => achaEx(e => e.peso && e.series >= min,
+                                  "com carga e ao menos " + min + " series");
+const exComSeries = min => achaEx(e => e.series >= min,
+                                  "com ao menos " + min + " series");
+
+/* Leva a sessao ate esse exercicio. No-op se ja for o que esta em foco. */
+function irPara(i){ if(i !== S.exIdx) session.goToEx(i); }
+
 function correrTreino(limite = 800){
   let g = 0;
   while(S.phase !== "confirm" && g++ < limite){
@@ -213,6 +236,9 @@ secao("11. 'Mais uma série aqui'");
 secao("12. 'Copiar anterior' e 'não registrar'");
 {
   novaSessao(0);
+  /* precisa de carga (para haver kg a copiar) e de 2 series (para haver uma
+     serie seguinte no MESMO exercicio de onde copiar) */
+  irPara(exComPeso(2));
   concluirSerie(80, 60); passarDescanso();
   session.openForm();
   els.btnCopy.click();
@@ -265,6 +291,7 @@ secao("14. Aviso visual nos últimos 5 s");
 secao("15. Desfazer a última série");
 {
   novaSessao(0);
+  irPara(exComSeries(3));                     // duas séries feitas e ainda pendente
   concluirSerie(10, 40); passarDescanso();
   concluirSerie(8, 45); passarDescanso();
   eq(S.log.length, 2, "duas séries registradas");
@@ -344,6 +371,7 @@ secao("19. Sessão salva é descartada quando não faz mais sentido");
 secao("20. Retomar restaura onde parou");
 {
   novaSessao(0);
+  irPara(exComPeso(1));                       // sem carga, o kg registrado seria null
   concluirSerie(9, 70); passarDescanso();
   session.goToEx(achaPendente(1));
   concluirSerie(7, 30); passarDescanso();
