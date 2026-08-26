@@ -2,11 +2,12 @@
   "treinos": [
     {
       "id": "A",
-      "nome": "Inferior — força",
-      "descricao": "Base de força para corrida. Carga alta, reps baixas, descanso longo.",
+      "nome": "Inferior — Posterior + Glúteo Médio",
+      "descricao": "Base de força para corrida.",
       "exercicios": [
-        { "nome": "Agachamento livre",        "series": 4, "descanso": 150, "peso": true,  "alvo": "5-6 reps" },
-        { "nome": "Levantamento terra romeno","series": 3, "descanso": 120, "peso": true,  "alvo": "6-8 reps" },
+        { "nome": "Monster Walk (miniband)",  "series": 2, "descanso": 20,  "peso": false, "alvo": "15 reps cada lado" },
+        { "nome": "Abdução quadril (miniband)", "series": 2, "descanso": 20, "peso": false,  "alvo": "15 reps cada lado" },
+        { "nome": "Pallof press (polia)", "series": 2, "descanso": 20, "peso": true,  "alvo": "10 reps cada lado" },
         { "nome": "Afundo com halteres",      "series": 3, "descanso": 90,  "peso": true,  "alvo": "8 por perna" },
         { "nome": "Panturrilha em pé",        "series": 4, "descanso": 60,  "peso": true,  "alvo": "10-12 reps" },
         { "nome": "Prancha isométrica",       "series": 3, "descanso": 45,  "peso": false, "alvo": "40-60 s" }
