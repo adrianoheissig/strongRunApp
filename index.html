@@ -48,6 +48,15 @@
       <div class="step" id="step">Exercício 1 de 5 · Série 1 de 4</div>
       <h1 id="exNome">—</h1>
       <div class="alvo" id="exAlvo"></div>
+
+      <!-- demonstracao do movimento; so aparece se o exercicio tiver `video` no
+           workouts.json. Fica mudo, em loop, e sem controles: e referencia visual,
+           nao midia para assistir. -->
+      <div class="exvideo hide" id="exVideoWrap">
+        <video id="exVideo" muted loop playsinline autoplay
+               disablepictureinpicture disableremoteplayback></video>
+      </div>
+
       <div class="nextex" id="nextEx"></div>
     </div>
 

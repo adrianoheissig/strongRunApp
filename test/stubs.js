@@ -20,6 +20,8 @@ function mkEl(id){
     },
     addEventListener(ev, fn){ (handlers[ev] = handlers[ev] || []).push(fn); },
     focus(){},
+    /* o <video> da demonstracao do exercicio */
+    src: "", removeAttribute(){}, load(){}, play(){ return Promise.resolve(); },
     click(){ (handlers.click || []).forEach(f => f()); },
     press(key){ (handlers.keydown || []).forEach(f => f({ key })); }
   };

@@ -46,6 +46,7 @@ export function render(){
                 " · Série " + S.serie + " de " + tot);
   texto("exNome", ex.nome);
   texto("exAlvo", (ex.alvo || "") + (ex.peso ? "" : " · sem carga"));
+  renderVideo(ex);
 
   /* qual exercício vem depois deste, para dar tempo de se preparar */
   const nx = achaPendente(1);
@@ -77,6 +78,35 @@ export function render(){
   $("progFill").style.width = (feitas / total * 100) + "%";
   texto("progA", feitas + " de " + total + " séries");
   texto("progB", (total - feitas) + " restantes");
+}
+
+/* Demonstração do movimento, quando o exercício tem `video` no workouts.json.
+   O vídeo é servido pelo site de origem (appbefit.com) — nada é copiado para o
+   repositório. Sem rede ele simplesmente não aparece; o resto do app continua.
+
+   ⚠️ Só toca no elemento quando o EXERCÍCIO MUDA. render() roda a cada 250 ms
+   pelo tick do cronômetro, e reatribuir o `src` a cada quadro reiniciaria o
+   vídeo do zero, sem parar. O `dataset.url` é a memória do que já está no ar. */
+function renderVideo(ex){
+  const v = $("exVideo"), wrap = $("exVideoWrap");
+  const url = ex.video || "";
+  if(v.dataset.url === url) return;
+  v.dataset.url = url;
+
+  if(!url){                       // exercício sem vídeo cadastrado
+    v.removeAttribute("src");
+    v.load();                     // sem isto o vídeo anterior continua tocando
+    wrap.classList.add("hide");
+    return;
+  }
+
+  /* rede fora, URL mudada no site, CDN fora do ar: esconde e segue */
+  v.onerror = () => wrap.classList.add("hide");
+  v.src = url;
+  wrap.classList.remove("hide");
+  /* autoplay recusado pelo navegador não é erro: fica no primeiro quadro */
+  const p = v.play();
+  if(p && p.catch) p.catch(() => {});
 }
 
 export function renderLedger(){

@@ -51,6 +51,9 @@ test/
   run.js        testes da máquina de estados — `node test/run.js`
   stubs.js      DOM, áudio e relógio falsos
 
+videos/         demonstracao dos exercicios, um .mp4 por movimento (~2,2 MB)
+  fontes.txt    de qual pagina do appbefit.com veio cada arquivo
+
 manifest.json   metadados do PWA
 sw.js           service worker, cache-first, com exceção para workouts.json
 icons/          192, 512, apple-touch-icon
@@ -71,8 +74,8 @@ events ─→ session ─→ render ─→ state
 `render.js` **nunca** importa `session.js`. Por isso `renderPick()` recebe o que
 fazer no clique como parâmetro, em vez de chamar `startWorkout` direto.
 
-⚠️ **Arquivo novo em `css/` ou `js/` tem de entrar na lista `ASSETS` do `sw.js`**,
-senão o app quebra quando estiver offline. O `addAll` é tudo-ou-nada: um caminho
+⚠️ **Arquivo novo em `css/`, `js/` ou `videos/` tem de entrar na lista `ASSETS`
+do `sw.js`**, senão o app quebra quando estiver offline. O `addAll` é tudo-ou-nada: um caminho
 errado ali e a instalação do service worker falha inteira, em silêncio.
 
 ---
@@ -169,8 +172,34 @@ exercícios, séries ou tempos de descanso.
 | `descanso` | int | segundos do regressivo após cada série |
 | `peso` | bool | `false` esconde o campo de kg (peso corporal, prancha) |
 | `alvo` | string | texto livre abaixo do nome do exercício |
+| `video` | string | **opcional.** Caminho do `.mp4` de demonstração, ex. `videos/pull-up-normal-grip.mp4`. Sem o campo, o exercício simplesmente não mostra vídeo |
 
 Pode haver quantos treinos quiser (E, F…). A tela de escolha se adapta sozinha.
+
+### Vídeo de demonstração
+
+Serve para lembrar **qual** é o movimento na hora de executá-lo. Aparece no
+cabeçalho do exercício, na tela de sessão: mudo, em loop, sem controles.
+
+Os arquivos estão em `videos/`, um `.mp4` por movimento, baixados do
+[appbefit.com](https://appbefit.com/exercises/). São **locais de propósito** —
+ficam no `ASSETS` do `sw.js` e portanto funcionam com o telefone offline, que é
+a situação normal no subsolo de uma academia. `videos/fontes.txt` registra de
+qual página veio cada arquivo.
+
+Para acrescentar um vídeo novo, são **três passos, nenhum opcional**:
+
+1. baixe o `.mp4` para `videos/<nome>.mp4`;
+2. aponte o campo `video` do exercício para esse caminho, em `workouts.json`;
+3. acrescente `"videos/<nome>.mp4"` ao `ASSETS` do `sw.js` e incremente `CACHE`.
+
+⚠️ **`renderVideo()` só troca o `src` quando o exercício muda**, comparando com
+`dataset.url`. O `render()` roda a cada 250 ms pelo tick do cronômetro — reatribuir
+o `src` a cada quadro reiniciaria o vídeo do zero, sem parar. Não simplifique isso
+para um `v.src = ex.video` direto.
+
+Vídeo que falhar ao carregar se esconde sozinho (`v.onerror`) e o treino segue —
+nenhuma fase da máquina de estados depende do vídeo.
 
 Os treinos que vieram no arquivo são um **ponto de partida genérico**, não uma
 prescrição. Se o usuário mandar ajustar, ajuste sem discutir a rotina em si.

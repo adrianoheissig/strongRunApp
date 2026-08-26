@@ -5,14 +5,68 @@
       "nome": "Inferior — Posterior + Glúteo Médio",
       "descricao": "Base de força para corrida.",
       "exercicios": [
-        { "nome": "Monster Walk (miniband)",  "series": 2, "descanso": 20,  "peso": false, "alvo": "15 reps cada lado" },
-        { "nome": "Abdução quadril deitado (miniband)", "series": 2, "descanso": 20, "peso": false,  "alvo": "15 reps cada lado" },
-        { "nome": "Pallof press (polia)", "series": 2, "descanso": 20, "peso": true,  "alvo": "10 reps cada lado" },
-        { "nome": "Agachamento Smith elevação Panturrilha", "series": 3, "descanso": 60,  "peso": true,  "alvo": "12 reps" },
-        { "nome": "Levantamento terra romeno unilateral (haltere)","series": 3, "descanso": 120, "peso": true,  "alvo": "6-8 reps" },
-        { "nome": "Adução de quadril (máquina)", "series": 3, "descanso": 45, "peso": true,  "alvo": "10 reps" },
-        { "nome": "Panturrilha em pé (máquina)",  "series": 3, "descanso": 30,  "peso": true, "alvo": "15 reps" },
-        { "nome": "Prancha bola suiça",  "series": 3, "descanso": 20,  "peso": false, "alvo": "60s" }
+        {
+          "nome": "Monster Walk (miniband)",
+          "series": 2,
+          "descanso": 20,
+          "peso": false,
+          "alvo": "15 reps cada lado"
+        },
+        {
+          "nome": "Abdução quadril deitado (miniband)",
+          "series": 2,
+          "descanso": 20,
+          "peso": false,
+          "alvo": "15 reps cada lado",
+          "video": "videos/resistance-band-clam.mp4"
+        },
+        {
+          "nome": "Pallof press (polia)",
+          "series": 2,
+          "descanso": 20,
+          "peso": true,
+          "alvo": "10 reps cada lado",
+          "video": "videos/pallof-press.mp4"
+        },
+        {
+          "nome": "Agachamento Smith elevação Panturrilha",
+          "series": 3,
+          "descanso": 60,
+          "peso": true,
+          "alvo": "12 reps",
+          "video": "videos/smith-squat.mp4"
+        },
+        {
+          "nome": "Levantamento terra romeno unilateral (haltere)",
+          "series": 3,
+          "descanso": 120,
+          "peso": true,
+          "alvo": "6-8 reps",
+          "video": "videos/single-leg-romanian-deadlift-dumbbell.mp4"
+        },
+        {
+          "nome": "Adução de quadril (máquina)",
+          "series": 3,
+          "descanso": 45,
+          "peso": true,
+          "alvo": "10 reps",
+          "video": "videos/adduction-machine.mp4"
+        },
+        {
+          "nome": "Panturrilha em pé (máquina)",
+          "series": 3,
+          "descanso": 30,
+          "peso": true,
+          "alvo": "15 reps",
+          "video": "videos/smith-machine-calf-raise.mp4"
+        },
+        {
+          "nome": "Prancha bola suiça",
+          "series": 3,
+          "descanso": 20,
+          "peso": false,
+          "alvo": "60s"
+        }
       ]
     },
     {
@@ -20,12 +74,54 @@
       "nome": "Superior + core",
       "descricao": "Puxar, empurrar e tronco. Mantém a postura firme no fim da prova.",
       "exercicios": [
-        { "nome": "Barra fixa (ou puxada)",   "series": 4, "descanso": 120, "peso": true,  "alvo": "6-8 reps" },
-        { "nome": "Supino com halteres",      "series": 3, "descanso": 90,  "peso": true,  "alvo": "8-10 reps" },
-        { "nome": "Remada curvada",           "series": 3, "descanso": 90,  "peso": true,  "alvo": "8-10 reps" },
-        { "nome": "Desenvolvimento sentado",  "series": 3, "descanso": 90,  "peso": true,  "alvo": "8-10 reps" },
-        { "nome": "Prancha lateral",          "series": 2, "descanso": 45,  "peso": false, "alvo": "30-45 s por lado" },
-        { "nome": "Abdominal remador",        "series": 3, "descanso": 45,  "peso": false, "alvo": "15 reps" }
+        {
+          "nome": "Barra fixa (ou puxada)",
+          "series": 4,
+          "descanso": 120,
+          "peso": true,
+          "alvo": "6-8 reps",
+          "video": "videos/pull-up-normal-grip.mp4"
+        },
+        {
+          "nome": "Supino com halteres",
+          "series": 3,
+          "descanso": 90,
+          "peso": true,
+          "alvo": "8-10 reps",
+          "video": "videos/dumbbell-bench-press.mp4"
+        },
+        {
+          "nome": "Remada curvada",
+          "series": 3,
+          "descanso": 90,
+          "peso": true,
+          "alvo": "8-10 reps",
+          "video": "videos/barbell-bent-over-row.mp4"
+        },
+        {
+          "nome": "Desenvolvimento sentado",
+          "series": 3,
+          "descanso": 90,
+          "peso": true,
+          "alvo": "8-10 reps",
+          "video": "videos/dumbbell-seated-shoulder-press.mp4"
+        },
+        {
+          "nome": "Prancha lateral",
+          "series": 2,
+          "descanso": 45,
+          "peso": false,
+          "alvo": "30-45 s por lado",
+          "video": "videos/side-plank.mp4"
+        },
+        {
+          "nome": "Abdominal remador",
+          "series": 3,
+          "descanso": 45,
+          "peso": false,
+          "alvo": "15 reps",
+          "video": "videos/v-ups.mp4"
+        }
       ]
     },
     {
@@ -33,13 +129,62 @@
       "nome": "Unilateral e estabilidade",
       "descricao": "Uma perna de cada vez. Corre-se em apoio único — é aqui que o desequilíbrio aparece.",
       "exercicios": [
-        { "nome": "Búlgaro com halteres",     "series": 3, "descanso": 120, "peso": true,  "alvo": "8 por perna" },
-        { "nome": "Terra unilateral",         "series": 3, "descanso": 90,  "peso": true,  "alvo": "8 por perna" },
-        { "nome": "Elevação de quadril",      "series": 3, "descanso": 75,  "peso": true,  "alvo": "10-12 reps" },
-        { "nome": "Panturrilha unilateral",   "series": 3, "descanso": 60,  "peso": true,  "alvo": "12 por perna" },
-        { "nome": "Mesa Flexora (máquina)",  "series": 3, "descanso": 45,  "peso": true, "alvo": "10 reps" },
-        { "nome": "Step-up alto",             "series": 3, "descanso": 90,  "peso": true,  "alvo": "10 por perna" },
-        { "nome": "Prancha com apoio único",  "series": 2, "descanso": 45,  "peso": false, "alvo": "30 s por lado" }
+        {
+          "nome": "Búlgaro com halteres",
+          "series": 3,
+          "descanso": 120,
+          "peso": true,
+          "alvo": "8 por perna",
+          "video": "videos/bulgarian-split-squat.mp4"
+        },
+        {
+          "nome": "Terra unilateral",
+          "series": 3,
+          "descanso": 90,
+          "peso": true,
+          "alvo": "8 por perna",
+          "video": "videos/barbell-single-leg-deadlift.mp4"
+        },
+        {
+          "nome": "Elevação de quadril",
+          "series": 3,
+          "descanso": 75,
+          "peso": true,
+          "alvo": "10-12 reps",
+          "video": "videos/dumbbell-hip-thrust.mp4"
+        },
+        {
+          "nome": "Panturrilha unilateral",
+          "series": 3,
+          "descanso": 60,
+          "peso": true,
+          "alvo": "12 por perna",
+          "video": "videos/calf-raise-with-wall-support.mp4"
+        },
+        {
+          "nome": "Mesa Flexora (máquina)",
+          "series": 3,
+          "descanso": 45,
+          "peso": true,
+          "alvo": "10 reps",
+          "video": "videos/lying-leg-curl-machine.mp4"
+        },
+        {
+          "nome": "Step-up alto",
+          "series": 3,
+          "descanso": 90,
+          "peso": true,
+          "alvo": "10 por perna",
+          "video": "videos/kettlebell-step-up.mp4"
+        },
+        {
+          "nome": "Prancha com apoio único",
+          "series": 2,
+          "descanso": 45,
+          "peso": false,
+          "alvo": "30 s por lado",
+          "video": "videos/alternate-single-leg-raise-plank.mp4"
+        }
       ]
     },
     {
@@ -47,10 +192,38 @@
       "nome": "Manutenção curta",
       "descricao": "Sessão enxuta para semana de prova ou dia apertado. Carga moderada, sem levar à falha.",
       "exercicios": [
-        { "nome": "Agachamento goblet",       "series": 3, "descanso": 90, "peso": true,  "alvo": "8 reps" },
-        { "nome": "Terra romeno",             "series": 2, "descanso": 90, "peso": true,  "alvo": "8 reps" },
-        { "nome": "Panturrilha em pé",        "series": 3, "descanso": 60, "peso": true,  "alvo": "12 reps" },
-        { "nome": "Prancha isométrica",       "series": 2, "descanso": 45, "peso": false, "alvo": "40 s" }
+        {
+          "nome": "Agachamento goblet",
+          "series": 3,
+          "descanso": 90,
+          "peso": true,
+          "alvo": "8 reps",
+          "video": "videos/dumbbell-goblet-squat.mp4"
+        },
+        {
+          "nome": "Terra romeno",
+          "series": 2,
+          "descanso": 90,
+          "peso": true,
+          "alvo": "8 reps",
+          "video": "videos/barbell-stiff-leg-deadlift.mp4"
+        },
+        {
+          "nome": "Panturrilha em pé",
+          "series": 3,
+          "descanso": 60,
+          "peso": true,
+          "alvo": "12 reps",
+          "video": "videos/dumbbell-standing-calf-raise.mp4"
+        },
+        {
+          "nome": "Prancha isométrica",
+          "series": 2,
+          "descanso": 45,
+          "peso": false,
+          "alvo": "40 s",
+          "video": "videos/front-plank.mp4"
+        }
       ]
     }
   ]
