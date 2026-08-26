@@ -9,7 +9,7 @@
         { "nome": "Abdução quadril deitado (miniband)", "series": 2, "descanso": 20, "peso": false,  "alvo": "15 reps cada lado" },
         { "nome": "Pallof press (polia)", "series": 2, "descanso": 20, "peso": true,  "alvo": "10 reps cada lado" },
         { "nome": "Agachamento Smith elevação Panturrilha", "series": 3, "descanso": 60,  "peso": true,  "alvo": "12 reps" },
-        { "nome": "Levantamento terra romeno","series": 3, "descanso": 120, "peso": true,  "alvo": "6-8 reps" },
+        { "nome": "Levantamento terra romeno unilateral (haltere)","series": 3, "descanso": 120, "peso": true,  "alvo": "6-8 reps" },
         { "nome": "Adução de quadril (máquina)", "series": 3, "descanso": 45, "peso": true,  "alvo": "10 reps" },
         { "nome": "Panturrilha em pé (máquina)",  "series": 3, "descanso": 30,  "peso": true, "alvo": "15 reps" },
         { "nome": "Prancha bola suiça",  "series": 3, "descanso": 20,  "peso": false, "alvo": "60s" }
