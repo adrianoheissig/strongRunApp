@@ -32,3 +32,17 @@ ativacao-marcha-band.mp4                       00:55-01:06
 ativacao-passada-lateral.mp4                   01:10-01:15
 ativacao-polichinelo-alternado.mp4             01:23-01:37
 # Prancha Copenhagen nao tem video: nao esta no material de origem.
+
+# pliometria — cortes de um unico video enviado pelo dono (Instagram @valicentif),
+# arquivo original f6cee4f7a0d446c38cda1e1402bf96a3.MP4. Os limites vieram da
+# deteccao de corte de cena do proprio video, por isso os decimais:
+plio-sobe-desce-step-frontal.mp4               00.000-04.100
+plio-bulgaro-salto-unilateral.mp4              04.100-09.267
+plio-sobe-desce-step-lateral.mp4               09.267-12.167
+plio-salto-bilateral-step.mp4                  12.167-14.733
+plio-salto-unilateral-step.mp4                 14.733-18.333
+plio-salto-frontal-unilateral-step.mp4         18.333-22.867
+plio-salto-dois-pes-step.mp4                   22.867-26.467
+plio-coordenacao-unilateral-step.mp4           26.467-32.367
+plio-salto-frontal-uma-perna.mp4               32.367-36.567
+plio-bulgaro-bate-sobe-pe-step.mp4             36.567-41.233

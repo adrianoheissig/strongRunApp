@@ -290,9 +290,96 @@
         {
           "nome": "Prancha Copenhagen",
           "series": 2,
-          "descanso": 30,
+          "descanso": 20,
           "peso": false,
           "alvo": "30 s cada lado"
+        }
+      ]
+    },
+    {
+      "id": "F",
+      "nome": "Pliometria",
+      "descricao": "Step e salto. Qualidade antes de volume — pouse leve.",
+      "exercicios": [
+        {
+          "nome": "Sobe e desce step frontal",
+          "series": 3,
+          "descanso": 45,
+          "peso": false,
+          "alvo": "20 s",
+          "video": "videos/plio-sobe-desce-step-frontal.mp4"
+        },
+        {
+          "nome": "Búlgaro com salto unilateral",
+          "series": 3,
+          "descanso": 45,
+          "peso": false,
+          "alvo": "20 s cada lado",
+          "video": "videos/plio-bulgaro-salto-unilateral.mp4"
+        },
+        {
+          "nome": "Sobe e desce step lateral",
+          "series": 4,
+          "descanso": 45,
+          "peso": false,
+          "alvo": "20 s",
+          "video": "videos/plio-sobe-desce-step-lateral.mp4"
+        },
+        {
+          "nome": "Salto bilateral no step",
+          "series": 3,
+          "descanso": 45,
+          "peso": false,
+          "alvo": "20 s",
+          "video": "videos/plio-salto-bilateral-step.mp4"
+        },
+        {
+          "nome": "Salto unilateral no step",
+          "series": 3,
+          "descanso": 45,
+          "peso": false,
+          "alvo": "12 reps cada lado",
+          "video": "videos/plio-salto-unilateral-step.mp4"
+        },
+        {
+          "nome": "Salto frontal unilateral no step",
+          "series": 3,
+          "descanso": 45,
+          "peso": false,
+          "alvo": "12 reps",
+          "video": "videos/plio-salto-frontal-unilateral-step.mp4"
+        },
+        {
+          "nome": "Salto com os dois pés no step",
+          "series": 4,
+          "descanso": 45,
+          "peso": false,
+          "alvo": "15 reps",
+          "video": "videos/plio-salto-dois-pes-step.mp4"
+        },
+        {
+          "nome": "Coordenação unilateral no step",
+          "series": 3,
+          "descanso": 45,
+          "peso": false,
+          "alvo": "10 reps cada lado",
+          "video": "videos/plio-coordenacao-unilateral-step.mp4"
+        },
+        {
+          "nome": "Salto simples frontal com uma perna",
+          "series": 3,
+          "descanso": 45,
+          "peso": false,
+          "alvo": "12 reps cada lado",
+          "video": "videos/plio-salto-frontal-uma-perna.mp4"
+        },
+        {
+          "nome": "Búlgaro batendo e subindo o pé no step",
+          "series": 3,
+          "descanso": 45,
+          "peso": false,
+          "alvo": "12 reps cada lado",
+          "video": "videos/plio-bulgaro-bate-sobe-pe-step.mp4"
         }
       ]
     }
