@@ -21,3 +21,14 @@ dumbbell-goblet-squat.mp4                      https://strong-animal-02f89d5138.
 barbell-stiff-leg-deadlift.mp4                 https://strong-animal-02f89d5138.media.strapiapp.com/15431201_Barbell_Stiff_Legged_Deadlift_Hips_FIX_f7bca89549.mp4
 dumbbell-standing-calf-raise.mp4               https://strong-animal-02f89d5138.media.strapiapp.com/04171201_Dumbbell_Standing_Calf_Raise_Calves_FIX_8ae7266ef3.mp4
 front-plank.mp4                                https://strong-animal-02f89d5138.media.strapiapp.com/f3e04e1706a3aa57732deae007fc8d0f.mp4
+
+# ativacao — cortes de um unico video enviado pelo dono (TikTok @diogo.moura55),
+# arquivo original v14044g50000da9i447og65jol8nci1g.MP4, recorte em segundos:
+ativacao-agachamento-band.mp4                  00:00-00:13
+ativacao-aducao-em-pe-band.mp4                 00:14-00:25
+ativacao-coice-band.mp4                        00:29-00:44
+ativacao-extensao-com-rotacao.mp4              00:45-00:54
+ativacao-marcha-band.mp4                       00:55-01:06
+ativacao-passada-lateral.mp4                   01:10-01:15
+ativacao-polichinelo-alternado.mp4             01:23-01:37
+# Prancha Copenhagen nao tem video: nao esta no material de origem.

@@ -225,6 +225,76 @@
           "video": "videos/front-plank.mp4"
         }
       ]
+    },
+    {
+      "id": "E",
+      "nome": "Ativação",
+      "descricao": "Miniband antes de correr ou treinar. Sem carga, sem pressa.",
+      "exercicios": [
+        {
+          "nome": "Agachamento com band acima do joelho",
+          "series": 2,
+          "descanso": 20,
+          "peso": false,
+          "alvo": "15 s",
+          "video": "videos/ativacao-agachamento-band.mp4"
+        },
+        {
+          "nome": "Adução em pé com band",
+          "series": 2,
+          "descanso": 20,
+          "peso": false,
+          "alvo": "10 s cada lado",
+          "video": "videos/ativacao-aducao-em-pe-band.mp4"
+        },
+        {
+          "nome": "Coice com band",
+          "series": 2,
+          "descanso": 20,
+          "peso": false,
+          "alvo": "15 s cada lado",
+          "video": "videos/ativacao-coice-band.mp4"
+        },
+        {
+          "nome": "Extensão com rotação",
+          "series": 2,
+          "descanso": 20,
+          "peso": false,
+          "alvo": "10 s cada lado",
+          "video": "videos/ativacao-extensao-com-rotacao.mp4"
+        },
+        {
+          "nome": "Marcha com band acima do joelho",
+          "series": 2,
+          "descanso": 20,
+          "peso": false,
+          "alvo": "20 s",
+          "video": "videos/ativacao-marcha-band.mp4"
+        },
+        {
+          "nome": "Passada lateral com band",
+          "series": 2,
+          "descanso": 20,
+          "peso": false,
+          "alvo": "15 s",
+          "video": "videos/ativacao-passada-lateral.mp4"
+        },
+        {
+          "nome": "Polichinelo e polisapato alternado com band",
+          "series": 2,
+          "descanso": 20,
+          "peso": false,
+          "alvo": "20 s",
+          "video": "videos/ativacao-polichinelo-alternado.mp4"
+        },
+        {
+          "nome": "Prancha Copenhagen",
+          "series": 2,
+          "descanso": 30,
+          "peso": false,
+          "alvo": "30 s cada lado"
+        }
+      ]
     }
   ]
 }

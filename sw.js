@@ -1,4 +1,4 @@
-const CACHE = "strongrun-v5";
+const CACHE = "strongrun-v6";
 
 /* ⚠️ Arquivo novo em css/ ou js/ TEM de entrar aqui, senão o app quebra offline.
    O `addAll` é tudo-ou-nada: um caminho errado nesta lista e a instalação do
@@ -38,6 +38,13 @@ const ASSETS = [
      `video` do workouts.json tem de apontar para o mesmo caminho. */
   "videos/adduction-machine.mp4",
   "videos/alternate-single-leg-raise-plank.mp4",
+  "videos/ativacao-agachamento-band.mp4",
+  "videos/ativacao-aducao-em-pe-band.mp4",
+  "videos/ativacao-coice-band.mp4",
+  "videos/ativacao-extensao-com-rotacao.mp4",
+  "videos/ativacao-marcha-band.mp4",
+  "videos/ativacao-passada-lateral.mp4",
+  "videos/ativacao-polichinelo-alternado.mp4",
   "videos/barbell-bent-over-row.mp4",
   "videos/barbell-single-leg-deadlift.mp4",
   "videos/barbell-stiff-leg-deadlift.mp4",
