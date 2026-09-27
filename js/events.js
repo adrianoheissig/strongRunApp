@@ -4,7 +4,7 @@
    não toca no DOM, e o teste pode carregar session.js/state.js sem precisar de
    uma página. */
 
-import { $, esconder } from "./dom.js";
+import { $, esconder, zoomVideo, zoomAtivo } from "./dom.js";
 import { S, achaPendente, podeIrPara } from "./state.js";
 import {
   startWork, openForm, saveSet, afterRest, askFinish, finish, goToEx,
@@ -52,6 +52,10 @@ export function bindEvents(){
     }
     else if(S.phase === "rest"){ S.restEnd += 30000; render(); }
   });
+
+  /* toque no vídeo: abre em primeiro plano para ver o movimento maior. Tocar
+     de novo — em qualquer ponto, inclusive sobre o próprio vídeo — volta. */
+  $("exVideoWrap").addEventListener("click", () => zoomVideo(!zoomAtivo()));
 
   /* pular / voltar: a máquina do exercício está ocupada */
   $("btnNextEx").addEventListener("click", () => goToEx(achaPendente(1)));

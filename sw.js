@@ -1,4 +1,4 @@
-const CACHE = "strongrun-v8";
+const CACHE = "strongrun-v9";
 
 /* ⚠️ Arquivo novo em css/ ou js/ TEM de entrar aqui, senão o app quebra offline.
    O `addAll` é tudo-ou-nada: um caminho errado nesta lista e a instalação do

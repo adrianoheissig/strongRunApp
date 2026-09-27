@@ -63,7 +63,8 @@ export function instalarStubs(){
 
   globalThis.document = {
     getElementById(id){ return els[id] = els[id] || mkEl(id); },
-    querySelectorAll(){ return picks; }
+    querySelectorAll(){ return picks; },
+    body: mkEl("body")            // o zoom do vídeo trava a rolagem por aqui
   };
   globalThis.window = {
     addEventListener(){},

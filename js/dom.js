@@ -13,3 +13,14 @@ export const html  = (id, h) => { $(id).innerHTML = h; };
 export const esc = s => String(s == null ? "" : s)
   .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
   .replace(/"/g, "&quot;");
+
+/* Vídeo da demonstração em primeiro plano, para conferir o detalhe do
+   movimento. É a MESMA tag <video> do cabeçalho do exercício, só que ocupando
+   a tela: uma segunda cópia começaria do zero e faria o `dataset.url` de
+   renderVideo() mentir sobre o que está no ar. Aqui só entra e sai classe. */
+export const zoomVideo = ligado => {
+  $("exVideoWrap").classList.toggle("zoom", ligado);
+  document.body.classList.toggle("videozoom", ligado);   // trava a rolagem atrás
+};
+
+export const zoomAtivo = () => $("exVideoWrap").classList.contains("zoom");

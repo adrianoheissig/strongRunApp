@@ -4,7 +4,7 @@
    transição — é isso que permite chamar render() de qualquer lugar sem efeito
    colateral, e o que evita ciclo de import com session.js. */
 
-import { $, texto, html, esc } from "./dom.js";
+import { $, texto, html, esc, zoomVideo } from "./dom.js";
 import { fmt } from "./format.js";
 import { S, seriesOf, achaPendente, progresso, workSecs,
          pendente, podeIrPara, feitasDe } from "./state.js";
@@ -92,6 +92,7 @@ function renderVideo(ex){
   const url = ex.video || "";
   if(v.dataset.url === url) return;
   v.dataset.url = url;
+  zoomVideo(false);             // trocou de exercício: fecha o primeiro plano
 
   if(!url){                       // exercício sem vídeo cadastrado
     v.removeAttribute("src");

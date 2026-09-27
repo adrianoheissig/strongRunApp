@@ -14,6 +14,20 @@
 .exvideo video{display:block;width:100%;height:40vw;max-height:168px;
   object-fit:contain;background:var(--ink)}
 
+/* Toque abre o vídeo em primeiro plano; outro toque volta. A classe entra no
+   próprio .exvideo — é o mesmo elemento de sempre, agora sobre a tela inteira,
+   e por isso o vídeo continua de onde estava em vez de recomeçar. */
+.exvideo{cursor:pointer}
+.exvideo.zoom{position:fixed;inset:0;z-index:50;margin:0;border:0;border-radius:0;
+  background:#000;display:flex;align-items:center;justify-content:center}
+.exvideo.zoom video{width:100%;height:100%;max-height:none;background:#000;
+  padding:env(safe-area-inset-top) 0 calc(34px + env(safe-area-inset-bottom))}
+.exvideo.zoom::after{content:"Toque para voltar";position:absolute;left:0;right:0;
+  bottom:calc(14px + env(safe-area-inset-bottom));text-align:center;
+  font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+  color:rgba(255,255,255,.5);pointer-events:none}
+body.videozoom{overflow:hidden}
+
 /* ---------- mostrador ---------- */
 .dial{background:var(--card);border:2px solid var(--ink);border-radius:10px;
   padding:20px 16px 18px;margin:16px 0;text-align:center}
