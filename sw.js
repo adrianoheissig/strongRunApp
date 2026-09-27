@@ -1,4 +1,4 @@
-const CACHE = "strongrun-v7";
+const CACHE = "strongrun-v8";
 
 /* ⚠️ Arquivo novo em css/ ou js/ TEM de entrar aqui, senão o app quebra offline.
    O `addAll` é tudo-ou-nada: um caminho errado nesta lista e a instalação do
@@ -59,6 +59,14 @@ const ASSETS = [
   "videos/kettlebell-step-up.mp4",
   "videos/lying-leg-curl-machine.mp4",
   "videos/pallof-press.mp4",
+  "videos/perna-abducao-quadril-em-pe.mp4",
+  "videos/perna-bulgaro-kb-swing.mp4",
+  "videos/perna-lunge-curtsy.mp4",
+  "videos/perna-rdl-kettlebell.mp4",
+  "videos/perna-rdl-unilateral.mp4",
+  "videos/perna-salto-lateral-com-bola.mp4",
+  "videos/perna-step-up-ponderado.mp4",
+  "videos/perna-thruster-halteres.mp4",
   "videos/plio-bulgaro-bate-sobe-pe-step.mp4",
   "videos/plio-bulgaro-salto-unilateral.mp4",
   "videos/plio-coordenacao-unilateral-step.mp4",

@@ -46,3 +46,15 @@ plio-salto-dois-pes-step.mp4                   22.867-26.467
 plio-coordenacao-unilateral-step.mp4           26.467-32.367
 plio-salto-frontal-uma-perna.mp4               32.367-36.567
 plio-bulgaro-bate-sobe-pe-step.mp4             36.567-41.233
+
+# dia da perna — cortes de um unico video enviado pelo dono (Instagram
+# @nunes.neto_), arquivo original dia_de_perna.MP4. Os limites vieram do rotulo
+# numerado que o proprio video mostra na tela, dai os decimais:
+perna-bulgaro-kb-swing.mp4                     02.150-04.780
+perna-salto-lateral-com-bola.mp4               04.780-08.000
+perna-rdl-kettlebell.mp4                       08.000-11.400
+perna-rdl-unilateral.mp4                       11.400-15.300
+perna-lunge-curtsy.mp4                         15.300-17.720
+perna-thruster-halteres.mp4                    17.720-22.300
+perna-abducao-quadril-em-pe.mp4                22.300-25.680
+perna-step-up-ponderado.mp4                    25.680-29.930

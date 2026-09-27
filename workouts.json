@@ -382,6 +382,77 @@
           "video": "videos/plio-bulgaro-bate-sobe-pe-step.mp4"
         }
       ]
+    },
+    {
+      "id": "G",
+      "nome": "Dia da perna do corredor",
+      "descricao": "Oito movimentos em circuito, 3x 12-15. Força, unilateral e potência na mesma sessão.",
+      "exercicios": [
+        {
+          "nome": "Búlgaro + KB swing",
+          "series": 3,
+          "descanso": 60,
+          "peso": true,
+          "alvo": "12-15 reps cada lado",
+          "video": "videos/perna-bulgaro-kb-swing.mp4"
+        },
+        {
+          "nome": "Salto lateral rotacional com bola",
+          "series": 3,
+          "descanso": 60,
+          "peso": true,
+          "alvo": "12-15 reps cada lado",
+          "video": "videos/perna-salto-lateral-com-bola.mp4"
+        },
+        {
+          "nome": "RDL com kettlebell",
+          "series": 3,
+          "descanso": 60,
+          "peso": true,
+          "alvo": "12-15 reps",
+          "video": "videos/perna-rdl-kettlebell.mp4"
+        },
+        {
+          "nome": "RDL unilateral com halteres",
+          "series": 3,
+          "descanso": 60,
+          "peso": true,
+          "alvo": "12-15 reps cada lado",
+          "video": "videos/perna-rdl-unilateral.mp4"
+        },
+        {
+          "nome": "Lunge curtsy com halteres",
+          "series": 3,
+          "descanso": 60,
+          "peso": true,
+          "alvo": "12-15 reps cada lado",
+          "video": "videos/perna-lunge-curtsy.mp4"
+        },
+        {
+          "nome": "Thruster com halteres",
+          "series": 3,
+          "descanso": 60,
+          "peso": true,
+          "alvo": "12-15 reps",
+          "video": "videos/perna-thruster-halteres.mp4"
+        },
+        {
+          "nome": "Abdução de quadril em pé (anilha)",
+          "series": 3,
+          "descanso": 45,
+          "peso": true,
+          "alvo": "12-15 reps cada lado",
+          "video": "videos/perna-abducao-quadril-em-pe.mp4"
+        },
+        {
+          "nome": "Step-up com kettlebell",
+          "series": 3,
+          "descanso": 60,
+          "peso": true,
+          "alvo": "12-15 reps cada lado",
+          "video": "videos/perna-step-up-ponderado.mp4"
+        }
+      ]
     }
   ]
 }
