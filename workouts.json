@@ -453,6 +453,194 @@
           "video": "videos/perna-step-up-ponderado.mp4"
         }
       ]
+    },
+    {
+      "id": "H",
+      "nome": "Força Posterior + Prevenção (academia)",
+      "descricao": "Sessão pesada com equipamento. Posterior, prevenção de adutores/IT band e excêntrico protetor. Prioridade: prevenção primeiro, compostos depois.",
+      "exercicios": [
+        {
+          "nome": "Monster Walk (miniband)",
+          "series": 2,
+          "descanso": 20,
+          "peso": false,
+          "alvo": "15 passos cada lado",
+          "obs": "Ativação glúteo médio. Proteção banda IT. Joelho alinhado, não colapsa medial."
+        },
+        {
+          "nome": "Pallof press (polia)",
+          "series": 2,
+          "descanso": 20,
+          "peso": true,
+          "alvo": "10 reps cada lado",
+          "obs": "Anti-rotação. Half-kneeling ou em pé. Tronco não gira = carga correta.",
+          "video": "videos/pallof-press.mp4"
+        },
+        {
+          "nome": "Adução de quadril (máquina)",
+          "series": 3,
+          "descanso": 30,
+          "peso": true,
+          "alvo": "12 reps",
+          "obs": "Prevenção adutores. Excêntrica 2s na volta — não deixar as pernas abrirem rápido pelo peso.",
+          "video": "videos/adduction-machine.mp4"
+        },
+        {
+          "nome": "Agachamento Smith elevação Panturrilha",
+          "series": 3,
+          "descanso": 60,
+          "peso": true,
+          "alvo": "12 reps (2RIR)",
+          "obs": "Pés 15-20cm à frente dos ombros para enfatizar posterior. Proteção contra câibra. Progredir carga.",
+          "video": "videos/smith-squat.mp4"
+        },
+        {
+          "nome": "RDL unilateral com halteres",
+          "series": 3,
+          "descanso": 45,
+          "peso": true,
+          "alvo": "8 reps cada lado (2RIR)",
+          "obs": "Posterior + equilíbrio unilateral. Haltere na mão oposta. Descida 3s controlada.",
+          "video": "videos/single-leg-romanian-deadlift-dumbbell.mp4"
+        },
+        {
+          "nome": "Step-up com kettlebell",
+          "series": 3,
+          "descanso": 45,
+          "peso": true,
+          "alvo": "10 reps cada lado",
+          "obs": "Concêntrico forte. Transferência direta para subidas. Caixa 30-40cm.",
+          "video": "videos/perna-step-up-ponderado.mp4"
+        },
+        {
+          "nome": "Mesa Flexora (máquina)",
+          "series": 3,
+          "descanso": 45,
+          "peso": true,
+          "alvo": "10 reps",
+          "obs": "EXCÊNTRICA 3-4s OBRIGATÓRIA. Proteção isquiotibiais e joelho. Progredir carga.",
+          "video": "videos/lying-leg-curl-machine.mp4"
+        },
+        {
+          "nome": "Panturrilha em pé (máquina)",
+          "series": 3,
+          "descanso": 30,
+          "peso": true,
+          "alvo": "15 reps",
+          "obs": "Excêntrica 3s obrigatória. Proteção Aquiles. Subida 1s, descida 3s controlada.",
+          "video": "videos/smith-machine-calf-raise.mp4"
+        },
+        {
+          "nome": "Prancha Copenhagen",
+          "series": 3,
+          "descanso": 20,
+          "peso": false,
+          "alvo": "20-30s cada lado",
+          "obs": "Prevenção adutores. Progressão: chão (sem 1-3) → banco (sem 4-6) → dinâmico (sem 7+)."
+        },
+        {
+          "nome": "Dead bug",
+          "series": 3,
+          "descanso": 20,
+          "peso": false,
+          "alvo": "10 reps cada lado",
+          "obs": "Anti-extensão controlada. Controle lombar. Mais funcional para corrida que abdominal declinado."
+        }
+      ]
+    },
+    {
+      "id": "I",
+      "nome": "Potência + Unilateral + Tibial",
+      "descricao": "Pliometria com SNC fresco, unilateral explosivo e prevenção de tibial/tornozelo. Pode fazer em academia ou espaço com step + halteres.",
+      "exercicios": [
+        {
+          "nome": "Heel walks",
+          "series": 2,
+          "descanso": 0,
+          "peso": false,
+          "alvo": "20 passos",
+          "obs": "Aquecimento + ativação tibial anterior. Prevenção shin splints."
+        },
+        {
+          "nome": "Abdução quadril deitado (miniband)",
+          "series": 2,
+          "descanso": 20,
+          "peso": false,
+          "alvo": "15 reps cada lado",
+          "obs": "Glúteo médio cadeia aberta. Ângulo diferente do monster walk do treino H.",
+          "video": "videos/resistance-band-clam.mp4"
+        },
+        {
+          "nome": "Pogo hops (saltitos)",
+          "series": 3,
+          "descanso": 45,
+          "peso": false,
+          "alvo": "15 reps",
+          "obs": "PLIOMETRIA — SNC FRESCO. Joelho quase não dobra. Mínimo contato no chão. Progressão: sem 1-4 pogo → sem 5-8 salto caixa → sem 9+ drop jump."
+        },
+        {
+          "nome": "Sobe e desce step frontal",
+          "series": 3,
+          "descanso": 45,
+          "peso": false,
+          "alvo": "20s",
+          "obs": "Coordenação + reatividade. Aterrissagem suave. Qualidade > velocidade.",
+          "video": "videos/plio-sobe-desce-step-frontal.mp4"
+        },
+        {
+          "nome": "Búlgaro + KB swing",
+          "series": 3,
+          "descanso": 60,
+          "peso": true,
+          "alvo": "8-10 reps cada lado",
+          "obs": "Unilateral + extensão de quadril explosiva. Rep range reduzido para 8-10 — prioriza força sobre condicionamento.",
+          "video": "videos/perna-bulgaro-kb-swing.mp4"
+        },
+        {
+          "nome": "Elevação de quadril",
+          "series": 3,
+          "descanso": 45,
+          "peso": true,
+          "alvo": "12 reps",
+          "obs": "Glúteo máximo. Pausa 2s no topo com pelve neutra. Não hiperestender lombar.",
+          "video": "videos/dumbbell-hip-thrust.mp4"
+        },
+        {
+          "nome": "Abdução de quadril em pé (anilha)",
+          "series": 3,
+          "descanso": 30,
+          "peso": true,
+          "alvo": "12 reps cada lado",
+          "obs": "Glúteo médio com carga em apoio unilateral. Complementa miniband do aquecimento.",
+          "video": "videos/perna-abducao-quadril-em-pe.mp4"
+        },
+        {
+          "nome": "Panturrilha unilateral",
+          "series": 3,
+          "descanso": 30,
+          "peso": true,
+          "alvo": "12 reps cada lado",
+          "obs": "Diferencia da bilateral do treino H. Excêntrica 3s. Gastrocnêmio unilateral.",
+          "video": "videos/calf-raise-with-wall-support.mp4"
+        },
+        {
+          "nome": "Dorsiflexão tibial em pé",
+          "series": 3,
+          "descanso": 20,
+          "peso": false,
+          "alvo": "15-20 reps",
+          "obs": "Proteção shin splints. Tibial anterior. Subida controlada, descida lenta."
+        },
+        {
+          "nome": "Prancha com apoio único",
+          "series": 2,
+          "descanso": 30,
+          "peso": false,
+          "alvo": "30s cada lado",
+          "obs": "Anti-rotação + coordenação contralateral. Quadril não balança.",
+          "video": "videos/alternate-single-leg-raise-plank.mp4"
+        }
+      ]
     }
   ]
 }
