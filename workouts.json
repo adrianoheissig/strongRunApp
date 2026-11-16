@@ -641,6 +641,252 @@
           "video": "videos/alternate-single-leg-raise-plank.mp4"
         }
       ]
+    },
+    {
+      "id": "J",
+      "nome": "Reatividade + Rigidez Tendínea",
+      "descricao": "Foco GCT: pliometria reativa com SNC fresco → panturrilha/Aquiles pesado → tibial. Sessão que mais ataca o tempo de contato no solo. Fazer antes de corrida leve/Z2.",
+      "exercicios": [
+        {
+          "nome": "Heel walks",
+          "series": 2,
+          "descanso": 0,
+          "peso": false,
+          "alvo": "20 passos",
+          "obs": "Ativação tibial anterior. Prevenção shin splints. Pé puxado ao máximo."
+        },
+        {
+          "nome": "Ankling drill (saltitos de tornozelo)",
+          "series": 2,
+          "descanso": 20,
+          "peso": false,
+          "alvo": "20s",
+          "obs": "Contato mínimo no chão, dorsiflexão ativa pré-contato. Tornozelo rígido como mola — isso é o GCT na prática."
+        },
+        {
+          "nome": "Pogo hops (saltitos)",
+          "series": 4,
+          "descanso": 60,
+          "peso": false,
+          "alvo": "15 reps",
+          "obs": "PLIOMETRIA PRINCIPAL — SNC FRESCO. Joelho quase reto, contato mínimo. Progressão: sem 1-4 bilateral → sem 5-8 alternado → sem 9+ unilateral. Se o GCT do Garmin não cair, a técnica está errada."
+        },
+        {
+          "nome": "Drop jump",
+          "series": 4,
+          "descanso": 90,
+          "peso": false,
+          "alvo": "5 reps",
+          "obs": "Cair de caixa 20-30cm e saltar imediatamente. MÍNIMO tempo no chão. Progressão de altura: 20cm (sem 1-4) → 30cm (sem 5-8) → 40cm (sem 9+). Qualidade absoluta — se o contato ficar mole, parar."
+        },
+        {
+          "nome": "Single-leg hops (saltos unilaterais contínuos)",
+          "series": 3,
+          "descanso": 60,
+          "peso": false,
+          "alvo": "8 reps cada lado",
+          "obs": "Corrida é apoio único. Contato rápido, joelho estável. Mede assimetria: se um lado é claramente pior, é lá que o GCT balance abre sob fadiga (vide 53,7% na prova de 10km)."
+        },
+        {
+          "nome": "Panturrilha em pé (máquina) — pesada",
+          "series": 4,
+          "descanso": 45,
+          "peso": true,
+          "alvo": "10 reps",
+          "obs": "CARGA ALTA, excêntrica 3s obrigatória. Rigidez tendínea do Aquiles = GCT menor. Subida explosiva 1s, descida controlada 3s. Progredir carga a cada 2 semanas.",
+          "video": "videos/smith-machine-calf-raise.mp4"
+        },
+        {
+          "nome": "Dorsiflexão tibial em pé",
+          "series": 3,
+          "descanso": 20,
+          "peso": false,
+          "alvo": "15-20 reps",
+          "obs": "Proteção shin splints. Tibial anterior. Superset com panturrilha se quiser ganhar tempo."
+        },
+        {
+          "nome": "Prancha Copenhagen",
+          "series": 2,
+          "descanso": 20,
+          "peso": false,
+          "alvo": "25-30s cada lado",
+          "obs": "Prevenção adutores. Progressão: chão → banco → dinâmico."
+        }
+      ]
+    },
+    {
+      "id": "K",
+      "nome": "Coordenação Pliométrica + Posterior Pesado",
+      "descricao": "Pliometria de coordenação (step drills) → compostos pesados de posterior → prevenção adutores. Sessão que mais protege contra câimbra nos km 30+. Fazer no dia da corrida de qualidade (regra inegociável: nunca na véspera).",
+      "exercicios": [
+        {
+          "nome": "Monster Walk (miniband)",
+          "series": 2,
+          "descanso": 20,
+          "peso": false,
+          "alvo": "15 passos cada lado",
+          "obs": "Ativação glúteo médio. Proteção IT band."
+        },
+        {
+          "nome": "Sobe e desce step frontal",
+          "series": 3,
+          "descanso": 45,
+          "peso": false,
+          "alvo": "20s",
+          "obs": "Coordenação + reatividade. Aterrissagem suave, contato rápido. Transferência direta para cadência alta.",
+          "video": "videos/plio-sobe-desce-step-frontal.mp4"
+        },
+        {
+          "nome": "Sobe e desce step lateral",
+          "series": 3,
+          "descanso": 45,
+          "peso": false,
+          "alvo": "20s",
+          "obs": "Estabilidade frontal + glúteo médio reativo. Complementa o frontal: plano sagital + frontal na mesma sessão.",
+          "video": "videos/plio-sobe-desce-step-lateral.mp4"
+        },
+        {
+          "nome": "Pallof press (polia)",
+          "series": 2,
+          "descanso": 20,
+          "peso": true,
+          "alvo": "10 reps cada lado",
+          "obs": "Anti-rotação. Tronco não gira = postura firme nos km finais.",
+          "video": "videos/pallof-press.mp4"
+        },
+        {
+          "nome": "Agachamento Smith",
+          "series": 3,
+          "descanso": 60,
+          "peso": true,
+          "alvo": "10 reps (2RIR)",
+          "obs": "Posterior pesado bilateral. Pés à frente para enfatizar posterior. Proteção contra câimbra nos km 30+. Progredir carga.",
+          "video": "videos/smith-squat.mp4"
+        },
+        {
+          "nome": "RDL unilateral com halteres",
+          "series": 3,
+          "descanso": 45,
+          "peso": true,
+          "alvo": "8 reps cada lado (2RIR)",
+          "obs": "Posterior + equilíbrio unilateral. Haltere na mão oposta. Descida 3s controlada.",
+          "video": "videos/single-leg-romanian-deadlift-dumbbell.mp4"
+        },
+        {
+          "nome": "Mesa Flexora (máquina)",
+          "series": 3,
+          "descanso": 45,
+          "peso": true,
+          "alvo": "10 reps",
+          "obs": "EXCÊNTRICA 3-4s OBRIGATÓRIA. Proteção isquiotibiais. Na maratona, isquiotibial é o primeiro a falhar.",
+          "video": "videos/lying-leg-curl-machine.mp4"
+        },
+        {
+          "nome": "Adução de quadril (máquina)",
+          "series": 3,
+          "descanso": 30,
+          "peso": true,
+          "alvo": "12 reps",
+          "obs": "Prevenção adutores. Excêntrica 2s na volta.",
+          "video": "videos/adduction-machine.mp4"
+        },
+        {
+          "nome": "Dead bug",
+          "series": 2,
+          "descanso": 20,
+          "peso": false,
+          "alvo": "10 reps cada lado",
+          "obs": "Anti-extensão lombar. Controle de pelve = economia de corrida nos km finais."
+        }
+      ]
+    },
+    {
+      "id": "L",
+      "nome": "Pliometria Unilateral + Resistência Anti-Fadiga",
+      "descricao": "Pliometria em apoio único (onde o GCT balance quebra sob fadiga) → unilateral pesado → core de resistência. Sessão que ataca diretamente a assimetria de 53,7% vista na prova de 10km.",
+      "exercicios": [
+        {
+          "nome": "Abdução quadril deitado (miniband)",
+          "series": 2,
+          "descanso": 20,
+          "peso": false,
+          "alvo": "15 reps cada lado",
+          "obs": "Glúteo médio cadeia aberta. Ativação antes da pliometria unilateral.",
+          "video": "videos/resistance-band-clam.mp4"
+        },
+        {
+          "nome": "Salto unilateral no step",
+          "series": 3,
+          "descanso": 60,
+          "peso": false,
+          "alvo": "8 reps cada lado",
+          "obs": "PLIOMETRIA UNILATERAL — SNC FRESCO. Contato rápido, aterrissagem controlada. Comparar lados: o lado que 'afunda' mais é o que abre o GCT balance.",
+          "video": "videos/plio-salto-unilateral-step.mp4"
+        },
+        {
+          "nome": "Coordenação unilateral no step",
+          "series": 3,
+          "descanso": 45,
+          "peso": false,
+          "alvo": "10 reps cada lado",
+          "obs": "Coordenação + propriocepção em apoio único. Qualidade > velocidade.",
+          "video": "videos/plio-coordenacao-unilateral-step.mp4"
+        },
+        {
+          "nome": "Búlgaro + KB swing",
+          "series": 3,
+          "descanso": 60,
+          "peso": true,
+          "alvo": "8-10 reps cada lado",
+          "obs": "Unilateral + extensão de quadril explosiva. Transferência direta para propulsão em apoio único.",
+          "video": "videos/perna-bulgaro-kb-swing.mp4"
+        },
+        {
+          "nome": "Elevação de quadril",
+          "series": 3,
+          "descanso": 45,
+          "peso": true,
+          "alvo": "12 reps",
+          "obs": "Glúteo máximo. Pausa 2s no topo com pelve neutra. Motor principal da corrida — tem que ser forte.",
+          "video": "videos/dumbbell-hip-thrust.mp4"
+        },
+        {
+          "nome": "Step-up com kettlebell",
+          "series": 3,
+          "descanso": 45,
+          "peso": true,
+          "alvo": "10 reps cada lado",
+          "obs": "Concêntrico forte unilateral. Simula subida. Caixa 30-40cm.",
+          "video": "videos/perna-step-up-ponderado.mp4"
+        },
+        {
+          "nome": "Panturrilha unilateral",
+          "series": 3,
+          "descanso": 30,
+          "peso": true,
+          "alvo": "12 reps cada lado",
+          "obs": "Excêntrica 3s. Diferencia da bilateral pesada do treino J. Resistência do gastrocnêmio em apoio único.",
+          "video": "videos/calf-raise-with-wall-support.mp4"
+        },
+        {
+          "nome": "Abdução de quadril em pé (anilha)",
+          "series": 3,
+          "descanso": 30,
+          "peso": true,
+          "alvo": "12 reps cada lado",
+          "obs": "Glúteo médio com carga em apoio unilateral. Proteção direta contra abertura do GCT balance.",
+          "video": "videos/perna-abducao-quadril-em-pe.mp4"
+        },
+        {
+          "nome": "Prancha com apoio único",
+          "series": 3,
+          "descanso": 30,
+          "peso": false,
+          "alvo": "30s cada lado",
+          "obs": "Anti-rotação + coordenação contralateral. 3 séries (não 2) — resistência de core para 3h+ de corrida.",
+          "video": "videos/alternate-single-leg-raise-plank.mp4"
+        }
+      ]
     }
   ]
 }
