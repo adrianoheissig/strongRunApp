@@ -887,6 +887,276 @@
           "video": "videos/alternate-single-leg-raise-plank.mp4"
         }
       ]
+    },
+    {
+      "id": "M",
+      "nome": "Posterior Pesado + Prevenção + Core Dinâmico",
+      "descricao": "Pliometria coordenativa → compostos pesados de posterior → prevenção adutores → core anti-fadiga. Fazer em dia de corrida LEVE (nunca após longão ou qualidade — perda de até 31% nos ganhos de força por concorrência de estímulos).",
+      "exercicios": [
+        {
+          "nome": "Monster Walk (miniband)",
+          "series": 2,
+          "descanso": 20,
+          "peso": false,
+          "alvo": "15 passos cada lado",
+          "obs": "Ativação glúteo médio. Proteção IT band.",
+          "execucao": "Coloque a miniband acima dos joelhos. Fique em meio-agachamento (joelhos levemente flexionados, quadril empurrado para trás). Dê passos laterais mantendo tensão constante na band. Joelhos apontando para fora — nunca deixe colapsar para dentro. Mantenha o tronco estável, sem balançar de um lado para o outro."
+        },
+        {
+          "nome": "Sobe e desce step frontal",
+          "series": 3,
+          "descanso": 45,
+          "peso": false,
+          "alvo": "20s",
+          "obs": "Coordenação + reatividade. Contato rápido, aterrissagem suave.",
+          "execucao": "De frente para o step, suba com um pé, depois o outro, desça com o primeiro, depois o segundo — ritmo contínuo e rápido. Contato leve no step e no chão (pise como se o chão estivesse quente). Braços acompanham o movimento naturalmente. Priorize qualidade do contato sobre velocidade.",
+          "video": "videos/plio-sobe-desce-step-frontal.mp4"
+        },
+        {
+          "nome": "Sobe e desce step lateral",
+          "series": 3,
+          "descanso": 45,
+          "peso": false,
+          "alvo": "20s",
+          "obs": "Estabilidade frontal + glúteo médio reativo.",
+          "execucao": "Posicione-se ao lado do step. Suba lateralmente com o pé mais próximo, depois o outro, desça pelo lado oposto e repita voltando. Mantenha o quadril nivelado — não deixe um lado cair. Contato rápido e leve. Troque o lado de início a cada série.",
+          "video": "videos/plio-sobe-desce-step-lateral.mp4"
+        },
+        {
+          "nome": "Pallof press com marcha (polia)",
+          "series": 2,
+          "descanso": 20,
+          "peso": true,
+          "alvo": "10 reps cada lado",
+          "obs": "Anti-rotação DINÂMICO. Core ativado a cada troca de apoio — simula o padrão da corrida.",
+          "execucao": "Fique de lado para a polia, segure o cabo com as duas mãos no peito. Estenda os braços à frente (a polia puxa para o lado — resista). Com os braços estendidos, marche no lugar levantando cada joelho a 90°, alternando. O tronco NÃO pode girar — se girar, a carga está alta demais. Faça todas as reps de um lado, depois vire e repita do outro.",
+          "video": "videos/pallof-press.mp4"
+        },
+        {
+          "nome": "Agachamento Smith",
+          "series": 3,
+          "descanso": 60,
+          "peso": true,
+          "alvo": "10 reps (2RIR)",
+          "obs": "Posterior pesado bilateral. Pés à frente. Proteção contra câimbra pós-km 30.",
+          "execucao": "Posicione os pés 15-20cm à frente da linha dos ombros (isso joga a carga para glúteos e isquiotibiais em vez de quadríceps). Desça controlado até as coxas ficarem paralelas ao chão. Joelhos acompanham a linha dos pés. Suba com força, sem travar os joelhos no topo. 2RIR = pare quando sentir que faria mais 2 reps com boa forma.",
+          "video": "videos/smith-squat.mp4"
+        },
+        {
+          "nome": "RDL unilateral com halteres",
+          "series": 3,
+          "descanso": 45,
+          "peso": true,
+          "alvo": "10 reps cada lado",
+          "obs": "Cadeia posterior + equilíbrio. Coluna neutra, sentir isquiotibiais no alongamento.",
+          "execucao": "Segure o halter na mão oposta à perna de apoio. Incline o tronco à frente empurrando o quadril para trás, enquanto a perna livre estende para trás (corpo forma uma linha reta do calcanhar à cabeça). Desça até sentir o alongamento nos isquiotibiais da perna de apoio. Volte apertando o glúteo — não puxe com a lombar. Olhar para o chão a ~1,5m à frente. Se perder o equilíbrio, reduza a amplitude.",
+          "video": "videos/single-leg-romanian-deadlift-dumbbell.mp4"
+        },
+        {
+          "nome": "Mesa Flexora (máquina)",
+          "series": 3,
+          "descanso": 45,
+          "peso": true,
+          "alvo": "10 reps",
+          "obs": "EXCÊNTRICA 3-4s OBRIGATÓRIA. Isquiotibial é o primeiro a falhar na maratona.",
+          "execucao": "Deite de bruços na máquina, joelhos alinhados com o eixo de rotação, almofada na parte baixa da panturrilha. Flexione os joelhos trazendo os calcanhares em direção ao glúteo — subida em 1-2s. DESÇA EM 3-4 SEGUNDOS, resistindo o peso (esta é a fase mais importante). Não deixe o peso cair de volta. Mantenha o quadril colado no banco o tempo todo — se levantar, a carga está alta demais.",
+          "video": "videos/lying-leg-curl-machine.mp4"
+        },
+        {
+          "nome": "Adução de quadril (máquina)",
+          "series": 3,
+          "descanso": 30,
+          "peso": true,
+          "alvo": "12 reps",
+          "obs": "Prevenção adutores. Excêntrica 2s na volta.",
+          "execucao": "Sentado na máquina, costas apoiadas, almofadas na parte interna das coxas. Junte as pernas com força — 1s na contração. Volte abrindo as pernas em 2 SEGUNDOS, controlando o peso (não deixe as pernas abrirem de estalo). A fase de volta é a que protege os adutores. Não use impulso do tronco.",
+          "video": "videos/adduction-machine.mp4"
+        },
+        {
+          "nome": "Panturrilha em pé (máquina)",
+          "series": 2,
+          "descanso": 30,
+          "peso": true,
+          "alvo": "15 reps",
+          "obs": "Frequência tendínea — 3x/semana. Excêntrica 5s.",
+          "execucao": "Na máquina de panturrilha em pé, posicione a ponta dos pés na plataforma com os calcanhares para fora. Suba na ponta dos pés em 1s (contração máxima no topo). Desça em 5 SEGUNDOS controlados até o calcanhar ficar abaixo da plataforma (alongamento completo). Não dobre os joelhos. Carga moderada aqui — o objetivo é frequência tendínea, não força máxima (isso é no treino N).",
+          "video": "videos/smith-machine-calf-raise.mp4"
+        },
+        {
+          "nome": "Dead bug com resistência (band ou anilha)",
+          "series": 3,
+          "descanso": 20,
+          "peso": false,
+          "alvo": "10 reps cada lado",
+          "obs": "Core anti-extensão com carga. Impede o relaxamento de core nos km finais.",
+          "execucao": "Deite de costas, braços estendidos para o teto, joelhos a 90° (posição de mesa). Prenda a miniband entre a mão direita e o joelho esquerdo (ou segure uma anilha leve nos braços). Estenda o braço oposto para trás e a perna oposta para frente, DEVAGAR, mantendo a lombar COLADA no chão — se a lombar descolar, o core relaxou. Volte e troque o lado. Se a lombar descolar em qualquer momento, reduza a amplitude."
+        }
+      ]
+    },
+    {
+      "id": "N",
+      "nome": "Reatividade + Rigidez Tendínea",
+      "descricao": "Foco GCT: pliometria reativa com SNC fresco → panturrilha/Aquiles pesado → tibial. Fazer em dia de corrida LEVE (nunca após longão ou qualidade — perda de até 31% nos ganhos de força por concorrência de estímulos).",
+      "exercicios": [
+        {
+          "nome": "Heel walks",
+          "series": 2,
+          "descanso": 0,
+          "peso": false,
+          "alvo": "20 passos",
+          "obs": "Ativação tibial anterior. Prevenção shin splints.",
+          "execucao": "Caminhe apenas apoiando os calcanhares, com a ponta dos pés puxada para cima o máximo possível (dorsiflexão máxima). Passos curtos e controlados. Sinta o músculo da frente da canela (tibial anterior) trabalhando. Mantenha o tronco ereto."
+        },
+        {
+          "nome": "A-skip com push-off",
+          "series": 3,
+          "descanso": 30,
+          "peso": false,
+          "alvo": "20m cada série",
+          "obs": "Drill de propulsão. Extensão COMPLETA do quadril. Corrige encurtamento de passada sob fadiga.",
+          "execucao": "É uma marcha saltada (skip) com ênfase na perna de apoio. A cada skip, o joelho da frente sobe a 90° enquanto a perna de trás ESTENDE COMPLETAMENTE antes de sair do chão — essa extensão total é o ponto-chave. Imagine que está empurrando o chão para longe de você. Braço oposto ao joelho que sobe. Não é corrida, é coordenação: faça devagar até o padrão ficar automático."
+        },
+        {
+          "nome": "Ankling drill (saltitos de tornozelo)",
+          "series": 2,
+          "descanso": 20,
+          "peso": false,
+          "alvo": "20s",
+          "obs": "Contato mínimo no chão, dorsiflexão ativa pré-contato. Tornozelo rígido como mola.",
+          "execucao": "Avance com passos curtíssimos, quase sem sair do lugar, tocando o chão só com a ponta do pé. O tornozelo fica RÍGIDO (não amortece) — funciona como uma mola que bate e volta. Puxe a ponta do pé para cima ANTES de tocar o chão (dorsiflexão ativa). Joelhos quase retos. O som deve ser um toque seco e rápido, não uma pisada pesada."
+        },
+        {
+          "nome": "Pogo hops (saltitos)",
+          "series": 4,
+          "descanso": 60,
+          "peso": false,
+          "alvo": "15 reps",
+          "obs": "PLIOMETRIA — SNC FRESCO. Joelho quase reto, contato mínimo. Progressão: sem 1-4 bilateral → sem 5-8 alternado → sem 9+ unilateral.",
+          "execucao": "Salte no lugar usando APENAS os tornozelos — joelhos quase não dobram. O objetivo é ficar o menor tempo possível no chão (pense em pular numa frigideira quente). Mantenha o corpo ereto, braços ajudam no impulso. O som do contato deve ser um estalo seco, não uma batida surda. Se o contato estiver ficando longo e pesado, pare — a qualidade caiu."
+        },
+        {
+          "nome": "Drop jump",
+          "series": 4,
+          "descanso": 90,
+          "peso": false,
+          "alvo": "5 reps",
+          "obs": "Progressão de altura: 20cm (sem 1-4) → 30cm (sem 5-8) → 40cm (sem 9+). Se o contato ficar mole, parar.",
+          "execucao": "Fique em pé sobre uma caixa/step. DÊ UM PASSO para fora (não salte da caixa — apenas caia). Ao tocar o chão com os dois pés, salte para cima IMEDIATAMENTE — o contato com o chão deve ser o mais curto possível. Aterrisse na ponta dos pés com os joelhos levemente flexionados. Se o tempo de contato for longo (você 'afunda' antes de saltar), a caixa está alta demais."
+        },
+        {
+          "nome": "Bounds (saltos horizontais alternados)",
+          "series": 3,
+          "descanso": 60,
+          "peso": false,
+          "alvo": "8 reps cada lado",
+          "obs": "Propulsão horizontal. Transferência direta para comprimento de passada.",
+          "execucao": "Salte de uma perna para a outra, deslocando-se para frente — como uma corrida em câmera lenta com saltos exagerados. Empurre o chão para TRÁS (não para cima). Aterrisse na ponta do pé com joelho levemente flexionado, absorvendo o impacto com o glúteo e quadríceps. Braço oposto ao joelho. Busque distância, não altura."
+        },
+        {
+          "nome": "Panturrilha em pé (máquina) — pesada",
+          "series": 4,
+          "descanso": 45,
+          "peso": true,
+          "alvo": "10 reps",
+          "obs": "CARGA ALTA. Excêntrica 5s obrigatória. Rigidez do Aquiles = GCT menor.",
+          "execucao": "Na máquina, ponta dos pés na plataforma, calcanhares para fora. Suba EXPLOSIVO na ponta dos pés em 1s — sinta a contração máxima no topo. Desça EM 5 SEGUNDOS, controlando cada centímetro, até o calcanhar ficar ABAIXO da plataforma (alongamento completo do Aquiles). Esta é a sessão pesada — use carga que desafie nas últimas 2 reps. Não dobre os joelhos.",
+          "video": "videos/smith-machine-calf-raise.mp4"
+        },
+        {
+          "nome": "Dorsiflexão tibial em pé",
+          "series": 3,
+          "descanso": 20,
+          "peso": false,
+          "alvo": "15-20 reps",
+          "obs": "Proteção shin splints. Superset com panturrilha.",
+          "execucao": "De pé, encoste as costas e os calcanhares na parede. Puxe a ponta dos dois pés para cima o máximo que conseguir (dorsiflexão), segure 1s no topo, desça devagar em 2s. Sinta o músculo da frente da canela queimar. Se ficar fácil, faça com um pé só. Pode fazer em superset com a panturrilha (um atrás do outro, sem descanso entre eles)."
+        },
+        {
+          "nome": "Prancha Copenhagen",
+          "series": 2,
+          "descanso": 20,
+          "peso": false,
+          "alvo": "25-30s cada lado",
+          "obs": "Prevenção adutores. Progressão: chão → banco → dinâmico.",
+          "execucao": "Deite de lado, apoie o cotovelo no chão e a perna de cima num banco (ou step de 30-40cm). A perna de baixo fica livre, sem tocar nada. Levante o quadril alinhando ombro-quadril-pé de cima em linha reta — a perna de baixo sobe junto, sustentada pelos adutores. Segure a posição sem deixar o quadril cair. Progressão: 1) perna de cima no chão (mais fácil); 2) no banco; 3) dinâmico (sobe e desce o quadril)."
+        }
+      ]
+    },
+    {
+      "id": "O",
+      "nome": "Superior + Core Anti-Fadiga",
+      "descricao": "Puxar, empurrar e tronco. Postura firme nos km finais da maratona. Sem perna pesada.",
+      "exercicios": [
+        {
+          "nome": "Barra fixa (ou puxada alta)",
+          "series": 4,
+          "descanso": 90,
+          "peso": true,
+          "alvo": "6-8 reps",
+          "obs": "Dorsal + bíceps. Base de postura.",
+          "execucao": "Pegada pronada (palmas para frente), mãos na largura dos ombros ou ligeiramente mais abertas. Parta de braços estendidos (sem balançar). Puxe o corpo para cima levando o peito em direção à barra — suba até o queixo passar a barra. Desça controlado em 2-3s até braços estendidos. Se não conseguir 6 reps, use a máquina de puxada alta com carga que permita o range prescrito. Não use impulso das pernas.",
+          "video": "videos/pull-up-normal-grip.mp4"
+        },
+        {
+          "nome": "Supino com halteres",
+          "series": 3,
+          "descanso": 90,
+          "peso": true,
+          "alvo": "8-10 reps",
+          "obs": "Peitoral + tríceps. Estabilidade do tronco.",
+          "execucao": "Deite no banco com um halter em cada mão, braços estendidos acima do peito, palmas para frente. Desça os halteres controlado em 2s até os cotovelos ficarem na linha do peito (90°). Suba empurrando os halteres em 1s, sem bater um no outro no topo. Pés firmes no chão, escápulas retraídas (aperte as omoplatas), leve arco natural na lombar.",
+          "video": "videos/dumbbell-bench-press.mp4"
+        },
+        {
+          "nome": "Remada curvada",
+          "series": 3,
+          "descanso": 90,
+          "peso": true,
+          "alvo": "8-10 reps",
+          "obs": "Dorsais + romboides. Mantém as costas eretas quando o corpo quer colapsar.",
+          "execucao": "Segure a barra com pegada pronada na largura dos ombros. Incline o tronco a ~45° com os joelhos levemente flexionados. Puxe a barra em direção ao umbigo, apertando as escápulas no topo (1s de pausa). Desça controlado em 2s. Coluna neutra o tempo todo — se a lombar arredondar, a carga está pesada demais. Olhar para o chão a ~2m à frente.",
+          "video": "videos/barbell-bent-over-row.mp4"
+        },
+        {
+          "nome": "Desenvolvimento sentado",
+          "series": 3,
+          "descanso": 90,
+          "peso": true,
+          "alvo": "8-10 reps",
+          "obs": "Deltoides + postura. Braço firma no balanço da corrida.",
+          "execucao": "Sentado no banco com encosto a ~85° (quase vertical), segure um halter em cada mão na altura das orelhas, cotovelos a ~90°, palmas para frente. Empurre os halteres para cima até os braços quase estenderem (não trave os cotovelos). Desça controlado em 2s até a posição inicial. Costas apoiadas no encosto, não arqueie a lombar.",
+          "video": "videos/dumbbell-seated-shoulder-press.mp4"
+        },
+        {
+          "nome": "Prancha lateral dinâmica com elevação de quadril",
+          "series": 3,
+          "descanso": 30,
+          "peso": false,
+          "alvo": "15 reps cada lado",
+          "obs": "Estabilização pélvica dinâmica. Com miniband nos joelhos para ativar glúteo médio.",
+          "execucao": "Deite de lado apoiado no cotovelo, corpo alinhado. Coloque a miniband acima dos joelhos (opcional, aumenta a ativação do glúteo médio). Comece com o quadril elevado em posição de prancha lateral. DESÇA o quadril até quase tocar o solo, depois ELEVE ao máximo, apertando o glúteo no topo. Movimento controlado, sem impulso. Mantenha o corpo em linha — não deixe o quadril ir para frente ou para trás. Faça todas as reps de um lado, depois troque."
+        },
+        {
+          "nome": "Prancha lateral isométrica",
+          "series": 2,
+          "descanso": 45,
+          "peso": false,
+          "alvo": "30-45s por lado",
+          "obs": "Oblíquos + quadrado lombar. Endurance estático.",
+          "execucao": "Deite de lado apoiado no cotovelo e na lateral do pé de baixo. Eleve o quadril formando uma linha reta de ombro a tornozelo. Segure a posição sem deixar o quadril cair ou rotar. Respire normalmente. Se não aguentar 30s com forma limpa, apoie o joelho de baixo no chão (versão facilitada). Faça um lado, descanse, faça o outro.",
+          "video": "videos/side-plank.mp4"
+        },
+        {
+          "nome": "Abdominal remador",
+          "series": 3,
+          "descanso": 45,
+          "peso": false,
+          "alvo": "15 reps",
+          "obs": "Reto abdominal + flexores de quadril.",
+          "execucao": "Deite de costas com braços e pernas estendidos. Simultaneamente, levante o tronco e as pernas, tentando tocar as mãos nos pés (corpo forma um V). Desça controlado sem deixar os pés ou os ombros tocarem completamente o chão entre as reps. Se for muito difícil manter as pernas retas, flexione levemente os joelhos. O movimento parte do abdômen, não do pescoço.",
+          "video": "videos/v-ups.mp4"
+        }
+      ]
     }
   ]
 }
